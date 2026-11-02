@@ -136,7 +136,6 @@
           <button class="mtab active" onclick="showTab('win', this)" role="tab" aria-selected="true" data-tab="win">💻 Windows (Batch)</button>
           <button class="mtab" onclick="showTab('linux', this)" role="tab" aria-selected="false" data-tab="linux">🐧 Linux (Bash)</button>
           <button class="mtab" onclick="showTab('termux', this)" role="tab" aria-selected="false" data-tab="termux">📱 Termux (OTG Mobile)</button>
-          <button class="mtab" onclick="showTab('recovery', this)" role="tab" aria-selected="false" data-tab="recovery">🛡️ Recovery (Sideload)</button>
         </div>
 
         <!-- WINDOWS TAB -->
@@ -286,92 +285,11 @@
           </div>
         </div>
 
-        <!-- RECOVERY SIDELOAD TAB -->
-        <div class="terminal-container" id="tab-recovery" style="display:none;">
-          <div class="terminal-bar">
-            <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
-            <span class="t-title">Recovery Sideload — Boot, Vendor_Boot &amp; ADB Sideload</span>
-          </div>
-          <div class="terminal-body">
-            <div class="step-list">
-              <div class="step">
-                <span class="step-n">1</span>
-                <span>Ensure your bootloader is unlocked, backup all your data, and install Xiaomi ADB/Fastboot drivers on your PC.</span>
-              </div>
-              <div class="step">
-                <span class="step-n">2</span>
-                <span>Download the ROM zip (Dolby Edition) and Recovery files (<kbd>boot.img</kbd> and <kbd>vendor_boot.img</kbd>) from the <a href="downloads.html" style="color:var(--violet);">Downloads page</a>. Place them in your platform-tools folder.</span>
-              </div>
-              <div class="step">
-                <span class="step-n">3</span>
-                <span>Turn off your Redmi K50i, enter Fastboot Mode by holding <kbd>Volume Down + Power</kbd>, connect USB, and flash the boot and vendor_boot partitions:</span>
-              </div>
-            </div>
-
-            <div class="cmd-section-label">// Flash Boot Image</div>
-            <div class="cmd-row">
-              <span class="cmd-prompt">&gt;</span>
-              <span class="cmd-text">fastboot flash boot boot.img</span>
-              <button class="cmd-copy" onclick="copyCmd(this, 'fastboot flash boot boot.img')">Copy</button>
-            </div>
-
-            <div class="cmd-section-label">// Flash Vendor Boot Image</div>
-            <div class="cmd-row">
-              <span class="cmd-prompt">&gt;</span>
-              <span class="cmd-text">fastboot flash vendor_boot vendor_boot.img</span>
-              <button class="cmd-copy" onclick="copyCmd(this, 'fastboot flash vendor_boot vendor_boot.img')">Copy</button>
-            </div>
-
-            <div class="step-list" style="margin-top:16px;">
-              <div class="step">
-                <span class="step-n">4</span>
-                <span>To boot into recovery manually: Press and hold the <kbd>Volume Up</kbd> button and the <kbd>Power</kbd> button at the same time. Release the <kbd>Power</kbd> button as soon as the Redmi/Mi logo appears on the screen, while continuing to hold the <kbd>Volume Up</kbd> button until the recovery menu opens. Alternatively, run:</span>
-              </div>
-            </div>
-
-            <div class="cmd-section-label">// Reboot into Recovery</div>
-            <div class="cmd-row">
-              <span class="cmd-prompt">&gt;</span>
-              <span class="cmd-text">fastboot reboot recovery</span>
-              <button class="cmd-copy" onclick="copyCmd(this, 'fastboot reboot recovery')">Copy</button>
-            </div>
-
-            <div class="step-list" style="margin-top:16px;">
-              <div class="step">
-                <span class="step-n">5</span>
-                <span>Once in Custom Recovery, tap on <strong>Format Data / Factory Reset</strong> and confirm to wipe userdata.</span>
-              </div>
-              <div class="step">
-                <span class="step-n">6</span>
-                <span>Enable ADB Sideload: Go to <strong>Apply update</strong> &rarr; select <strong>Apply from ADB</strong> (ADB Sideload).</span>
-              </div>
-              <div class="step">
-                <span class="step-n">7</span>
-                <span>On your computer command prompt / terminal, run the sideload command with your ROM zip file:</span>
-              </div>
-            </div>
-
-            <div class="cmd-section-label">// Sideload Lunaris ROM Zip</div>
-            <div class="cmd-row">
-              <span class="cmd-prompt">&gt;</span>
-              <span class="cmd-text">adb sideload Lunaris-AOSP-xaga-UNOFFICIAL-3.13-GMS-2026110116.zip</span>
-              <button class="cmd-copy" onclick="copyCmd(this, 'adb sideload Lunaris-AOSP-xaga-UNOFFICIAL-3.13-GMS-2026110116.zip')">Copy</button>
-            </div>
-
-            <div class="step-list" style="margin-top:16px;">
-              <div class="step">
-                <span class="step-n">8</span>
-                <span>Wait for sideloading to finish (100% or step 2/2). Then in Recovery tap <strong>Reboot system now</strong>. Enjoy Lunaris AOSP!</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       <!-- FIRST BOOT & FAQ ACCORDION -->
       <div style="margin-top:40px;">
-        <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:16px;color:var(--text);">Frequently Asked Questions &amp; Recovery</h3>
+        <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:16px;color:var(--text);">Frequently Asked Questions</h3>
         
         <div class="spec-card" style="margin-bottom:12px;">
           <div class="spec-val" style="font-size:1rem;color:var(--violet);">Q: How long does the first boot take?</div>

@@ -198,7 +198,7 @@
 
   /* ── GUIDE TABS SWITCHER ── */
   window.showTab = function (id, btn) {
-    ['win', 'linux', 'termux', 'recovery'].forEach(t => {
+    ['win', 'linux', 'termux'].forEach(t => {
       const el = document.getElementById('tab-' + t);
       if (el) el.style.display = (t === id) ? 'block' : 'none';
     });
