@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#03050a">
-  <title>Changelogs · Lunaris AOSP</title>
+  <meta name="theme-color" content="#03050d">
+  <title>Changelogs · Lunaris AOSP | Redmi K50i (xaga)</title>
 
-  <meta name="description" content="Detailed release notes and changelogs for Lunaris AOSP updates on Redmi K50i (xaga).">
-  <meta name="keywords" content="Lunaris AOSP changelog, Redmi K50i updates, xaga release notes, Android 16 features">
+  <meta name="description" content="Detailed release notes, kernel changes, and changelogs for Lunaris AOSP on Redmi K50i (xaga). Based on Android 16.">
+  <meta name="keywords" content="Lunaris AOSP changelog, Redmi K50i updates, xaga release notes, Android 16 features, Fenrir LK">
   <meta name="author" content="dev Rohan (itsrohan17)">
   <link rel="canonical" href="https://itsrohan17.github.io/Lunaris-Aosp-Xaga-website/changelog.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://itsrohan17.github.io/Lunaris-Aosp-Xaga-website/changelog.html">
-  <meta property="og:title" content="Changelogs · Lunaris AOSP">
-  <meta property="og:description" content="View release notes, bug fixes, and feature additions for all Lunaris AOSP builds for Redmi K50i.">
+  <meta property="og:title" content="Changelogs · Lunaris AOSP | Redmi K50i">
+  <meta property="og:description" content="View release notes, bug fixes, and feature additions for all Lunaris AOSP builds.">
   <meta property="og:site_name" content="Lunaris AOSP">
+  <meta property="og:image" content="screenshots/homescreen.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Changelogs · Lunaris AOSP">
-  <meta name="twitter:description" content="View release notes, bug fixes, and feature additions for all Lunaris AOSP builds for Redmi K50i.">
+  <meta name="twitter:title" content="Changelogs · Lunaris AOSP | Redmi K50i">
+  <meta name="twitter:description" content="View release notes, bug fixes, and feature additions for all Lunaris AOSP builds.">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌕</text></svg>">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="perf.css">
@@ -38,357 +40,385 @@
   <script src="stars.js" defer></script>
   <script src="transitions.js"></script>
   <script src="script.js" defer></script>
-
-  <style>
-    :root { --bg: #03050a; --bg-gradient: radial-gradient(circle at top, #0d1126 0%, #03050a 70%); --border: rgba(255, 255, 255, 0.06); --violet: #a78bfa; --accent: #8b5cf6; --sky: #38bdf8; --text: #f8fafc; --muted: #94a3b8; --glass: rgba(255, 255, 255, 0.03); --glass-border: rgba(255, 255, 255, 0.08); }
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Outfit', sans-serif; background: var(--bg); background-image: var(--bg-gradient); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-    .ambient-glow { position: fixed; top: -20vh; left: 50%; transform: translateX(-50%); width: 120vw; height: 100vh; background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 60%); z-index: 0; pointer-events: none; animation: nebulaBreathe 12s ease-in-out infinite alternate; will-change: transform; }
-    @media (max-width: 768px) { .ambient-glow { animation: none; opacity: 0.8; } }
-    @keyframes nebulaBreathe { 0% { transform: translateX(-50%) scale(1); opacity: 0.8; } 100% { transform: translateX(-48%) scale(1.05); opacity: 1; } }
-    #pc { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.7; }
-    .rev { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.3s; }
-    header { position: relative; z-index: 10; padding: 24px 16px 0; text-align: center; }
-    .nav { display: inline-flex; justify-content: space-between; align-items: center; margin: 0 auto 48px; padding: 10px 20px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 100px; backdrop-filter: blur(16px); box-shadow: 0 4px 24px rgba(0,0,0,0.2); gap: 16px; animation: navGlow 6s ease-in-out infinite; }
-    @keyframes navGlow { 0%, 100% { border-color: rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.2); } 50% { border-color: rgba(139,92,246,0.2); box-shadow: 0 4px 30px rgba(139,92,246,0.1); } }
-    .nav-logo { font-weight: 800; font-size: 0.9rem; letter-spacing: 0.1em; color: var(--text); }
-    .nav-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); }
-    .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; }
-    .hero-content { margin-top: 40px; }
-    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--violet); text-transform: uppercase; margin-bottom: 16px; }
-    h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; background: linear-gradient(135deg, #fff 0%, #c4b5fd 25%, #818cf8 50%, #c4b5fd 75%, #fff 100%); background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 24px; animation: gradientShift 8s ease infinite; }
-    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    .btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px; position: relative; z-index: 20; }
-    .btn { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; font-weight: 500; font-size: 0.9rem; border-radius: 12px; text-decoration: none; color: #fff; border: 1px solid transparent; cursor: pointer; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-    .btn:hover { transform: translateY(-3px); }
-    .btn:active { transform: translateY(1px); }
-    .btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent); transform: skewX(-20deg); transition: 0.6s ease; }
-    .btn:hover::after { left: 150%; }
-    .bg { background: var(--glass); border-color: var(--glass-border); backdrop-filter: blur(10px); }
-    .bg:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-    .timeline-section { position: relative; z-index: 10; padding: 0 16px 64px; }
-    .timeline { max-width: 680px; margin: 0 auto; position: relative; padding-left: 28px; }
-    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, rgba(139,92,246,0.5), transparent); }
-    .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
-    .scroll-reveal.active { opacity: 1; transform: translateY(0); }
-    .tl-item { position: relative; margin-bottom: 32px; opacity: 0; transform: translateX(-20px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
-    .tl-item.visible { opacity: 1; transform: translateX(0); }
-    .tl-dot { position: absolute; left: -24px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--violet); border: 2px solid rgba(255,255,255,0.1); }
-    .tl-dot.latest { box-shadow: 0 0 12px var(--violet); }
-    .tl-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px; padding: 20px; backdrop-filter: blur(12px); transition: border-color 0.4s, transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s; }
-    .tl-item.visible .tl-card:hover { border-color: rgba(139,92,246,0.3); }
-    .tl-item:first-child.visible .tl-card { animation: tlLatestGlow 4s ease-in-out infinite; }
-    @keyframes tlLatestGlow {
-      0%, 100% { border-color: rgba(139,92,246,0.15); box-shadow: 0 0 20px rgba(139,92,246,0.05); }
-      50% { border-color: rgba(139,92,246,0.35); box-shadow: 0 0 30px rgba(139,92,246,0.12), 0 8px 32px rgba(139,92,246,0.08); }
-    }
-    .tl-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
-    .tl-version { font-weight: 700; font-size: 1.1rem; color: var(--violet); }
-    .tl-date { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--muted); }
-    .tl-badge { font-size: 0.65rem; padding: 3px 10px; border-radius: 20px; font-family: 'JetBrains Mono', monospace; }
-    .tl-badge.latest { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #34d399; }
-    .tl-changes { list-style: none; padding: 0; }
-    .tl-changes li { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #a7f3d0; padding: 4px 0 4px 12px; position: relative; line-height: 1.5; border-left: 2px solid rgba(16,185,129,0.2); margin-bottom: 4px; }
-    .tl-changes li::before { content: '>'; position: absolute; left: -1px; color: rgba(16,185,129,0.8); font-weight: 700; font-size: 0.7rem; }
-    .tl-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 0.8rem; color: var(--sky); text-decoration: none; opacity: 0.8; transition: opacity 0.25s, transform 0.25s; }
-    .tl-link:hover { opacity: 1; transform: translateX(4px); }
-    .premium-footer { position: relative; z-index: 10; background: rgba(5, 8, 20, 0.6); border-top: 1px solid var(--glass-border); padding: 60px 20px 30px; margin-top: 40px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto 40px; }
-    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; text-align: center; } }
-    .footer-col h4 { font-weight: 600; font-size: 0.95rem; color: var(--text); margin-bottom: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
-    .footer-col a { display: block; color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-bottom: 12px; transition: color 0.2s, padding-left 0.2s; }
-    .footer-col a:hover { color: var(--violet); padding-left: 5px; }
-    .brand-col .footer-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--text); display: block; margin-bottom: 12px; }
-    .brand-col .footer-desc { color: var(--muted); font-size: 0.85rem; line-height: 1.6; max-width: 300px; }
-    @media (max-width: 768px) { .brand-col .footer-desc { margin: 0 auto; } }
-    .footer-bottom { max-width: 1000px; margin: 0 auto; border-top: 1px solid var(--glass-border); padding-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .device-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); background: var(--glass); padding: 10px 24px; border-radius: 30px; border: 1px solid var(--glass-border); }
-    .info-label { color: var(--violet); text-transform: uppercase; letter-spacing: 0.1em; margin-right: 4px; }
-    .dot-sep { color: rgba(255,255,255,0.2); }
-    .copyright { font-size: 0.75rem; color: var(--muted); }
-    ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.5); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.8); }
-    /* === ANIMATIONS === */
-    @keyframes timelineGlow {
-      0%, 100% { background: linear-gradient(to bottom, rgba(139,92,246,0.5), transparent); }
-      50% { background: linear-gradient(to bottom, rgba(139,92,246,0.9), rgba(139,92,246,0.2), transparent); }
-    }
-    .timeline::before { animation: timelineGlow 4s ease-in-out infinite; }
-
-    @keyframes dotPulseTimeline {
-      0%, 100% { box-shadow: 0 0 12px var(--violet); transform: scale(1); }
-      50% { box-shadow: 0 0 20px var(--violet), 0 0 30px rgba(139,92,246,0.3); transform: scale(1.2); }
-    }
-    .tl-dot.latest { animation: dotPulseTimeline 2.5s ease-in-out infinite; }
-
-    .tl-item.visible .tl-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(139,92,246,0.1); }
-
-    @keyframes badgeShimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-    .tl-badge.latest { background: linear-gradient(90deg, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.3) 50%, rgba(16,185,129,0.1) 100%); background-size: 200% 100%; animation: badgeShimmer 3s ease-in-out infinite; }
-
-    .tl-changes li { opacity: 0; transform: translateX(-8px); transition: opacity 0.3s, transform 0.3s; }
-    .tl-item.visible .tl-changes li { opacity: 1; transform: translateX(0); }
-    .tl-item.visible .tl-changes li:nth-child(1) { transition-delay: 0.05s; }
-    .tl-item.visible .tl-changes li:nth-child(2) { transition-delay: 0.1s; }
-    .tl-item.visible .tl-changes li:nth-child(3) { transition-delay: 0.15s; }
-    .tl-item.visible .tl-changes li:nth-child(4) { transition-delay: 0.2s; }
-    .tl-item.visible .tl-changes li:nth-child(5) { transition-delay: 0.25s; }
-    .tl-item.visible .tl-changes li:nth-child(6) { transition-delay: 0.3s; }
-    .tl-item.visible .tl-changes li:nth-child(7) { transition-delay: 0.35s; }
-    .tl-item.visible .tl-changes li:nth-child(8) { transition-delay: 0.4s; }
-    .tl-item.visible .tl-changes li:nth-child(9) { transition-delay: 0.45s; }
-    .tl-item.visible .tl-changes li:nth-child(10) { transition-delay: 0.5s; }
-    .tl-item.visible .tl-changes li:nth-child(11) { transition-delay: 0.55s; }
-    .tl-item.visible .tl-changes li:nth-child(12) { transition-delay: 0.6s; }
-    @keyframes dotPulse {
-      0%, 100% { box-shadow: 0 0 8px #10b981; }
-      50% { box-shadow: 0 0 16px #10b981, 0 0 24px rgba(16,185,129,0.3); }
-    }
-    .nav-dot { animation: dotPulse 2s ease-in-out infinite; }
-
-    .tl-version { transition: color 0.3s; }
-    .tl-card:hover .tl-version { background: linear-gradient(135deg, var(--violet), #818cf8); -webkit-background-clip: text; background-clip: text; color: transparent; }
-
-    .footer-col a { position: relative; }
-    .footer-col a::before { content: '\2192'; position: absolute; left: -15px; opacity: 0; transform: translateX(-5px); transition: opacity 0.2s, transform 0.2s; color: var(--violet); }
-    .footer-col a:hover::before { opacity: 1; transform: translateX(0); }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-    }
-  </style>
-
 </head>
+
 <body>
 
-  <canvas id="pc"></canvas>
-  <div class="ambient-glow" id="nebula"></div>
+  <canvas id="pc" aria-hidden="true"></canvas>
+  <div class="ambient-glow" id="nebula" aria-hidden="true"></div>
 
+  <!-- NAVIGATION HEADER -->
   <header>
-    <nav class="nav scroll-reveal">
-      <a href="index.html" style="text-decoration:none;"><span class="nav-logo">LUNARIS</span></a>
-      <span class="nav-badge">BUILD 2026 · XAGA</span>
-      <div class="nav-dot"></div>
-    </nav>
-    <div class="hero-content">
-      <p class="eyebrow rev d1">Release Notes</p>
-      <div class="title-wrap rev d2">
-        <h1>CHANGELOGS</h1>
-      </div>
-      <div class="btns rev d3">
-        <a href="index.html" class="btn bg">
-          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-          Back to Home
+    <nav class="nav-container scroll-reveal" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo-icon">🌕</div>
+        <span class="nav-logo-text">LUNARIS</span>
+        <span class="nav-badge-pill">XAGA · 2026</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Overview</a></li>
+        <li><a href="downloads.html" class="nav-link">Downloads</a></li>
+        <li><a href="changelog.html" class="nav-link active">Changelogs</a></li>
+        <li><a href="guide.html" class="nav-link">Flashing Guide</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="index.html" class="btn bg" style="padding:8px 16px;font-size:0.82rem;border-radius:999px;">
+          <span>← Back to Home</span>
         </a>
+        <div class="nav-dot" title="Builds Active"></div>
+        <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu" onclick="document.getElementById('mobile-drawer').classList.toggle('open')">
+          ☰
+        </button>
       </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu-drawer" id="mobile-drawer">
+      <a href="index.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Overview</a>
+      <a href="downloads.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Downloads</a>
+      <a href="changelog.html" class="nav-link active" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Changelogs</a>
+      <a href="guide.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Flashing Guide</a>
+      <a href="https://t.me/screenshotsxaga" target="_blank" rel="noopener noreferrer" class="nav-link" style="color:var(--sky);">Telegram Updates ↗</a>
+      <a href="https://github.com/itsrohan17" target="_blank" rel="noopener noreferrer" class="nav-link" style="color:var(--violet);">Maintainer GitHub ↗</a>
     </div>
   </header>
 
-  <section class="timeline-section scroll-reveal" id="changelog-section">
-    <div class="timeline">
-      
-      <!-- v3.12 Entry -->
-      <div class="tl-item">
-        <div class="tl-dot latest"></div>
-        <div class="tl-card">
-          <div class="tl-header">
-            <span class="tl-version">v3.12</span>
-            <span class="tl-date">Aug 2026</span>
-            <span class="tl-badge latest">Latest</span>
-          </div>
-          <ul class="tl-changes">
-            <li>New Fenrir LK</li>
-            <li>Improved RAM management</li>
-            <li>Improved QS expansion and tile animations</li>
-            <li>Improved brightness slider animation and haptics</li>
-            <li>Improved Dynamic Bar animations</li>
-            <li>Improved launcher blur animations</li>
-            <li>Improved custom clock layouts</li>
-            <li>Improved lyrics sync timing</li>
-            <li>Optimized shade blur</li>
-          </ul>
-          <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" class="tl-link">
-            <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            Full changelog on GitHub
-          </a>
-        </div>
+  <main id="page-root">
+    <div class="hero-wrapper" style="margin-bottom:28px;">
+      <p class="hero-pill-badge rev d1">
+        <span>📜 RELEASE NOTES &amp; MILESTONES</span>
+      </p>
+      <div class="rev d2">
+        <h1 class="hero-title">CHANGELOGS</h1>
       </div>
-
-      <!-- v3.11 Entry -->
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-header">
-            <span class="tl-version">v3.11</span>
-            <span class="tl-date">Jun 2026</span>
-          </div>
-          <ul class="tl-changes">
-            <li>Added Dolby Atmos</li>
-            <li>Fix WiFi & signal icons sizing</li>
-            <li>Improve custom recents animations</li>
-            <li>Fix QS media position reset issue (QQS and QS)</li>
-            <li>Fix battery percentage color issue when statusbar tint on</li>
-            <li>New 15 clock styles with weather support</li>
-            <li>Match some clock weather text with clock date</li>
-            <li>Advanced Monet customisation</li>
-            <li>Fix custom clock weather text not following clock color</li>
-            <li>Add album art color override for lockscreen clock</li>
-            <li>Improve gallery area — all screenshots look good</li>
-          </ul>
-          <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" class="tl-link">
-            <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            Full changelog on GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- v3.10 Hotfix 1.2 Entry -->
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-header">
-            <span class="tl-version">v3.10 Hotfix 1.2</span>
-            <span class="tl-date">May 2026</span>
-          </div>
-          <ul class="tl-changes">
-            <li>Add skydrove color customisation for clock style</li>
-            <li>Add option to browse all clocks</li>
-            <li>Add Statusbar brightness</li>
-            <li>Update some clock size and add new clocks</li>
-            <li>Add option in idle manager to trigger only when sleep mode on</li>
-            <li>Enable power button gemini animation</li>
-            <li>L3 popup unlock animation</li>
-            <li>Fix performance issues with OneUI app drawer style</li>
-            <li>Add initial split qs option</li>
-            <li>Fix app lock notification issue</li>
-          </ul>
-          <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" class="tl-link">
-            <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            Full changelog on GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- v3.10 Hotfix Entry -->
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-header">
-            <span class="tl-version">v3.10 Hotfix</span>
-            <span class="tl-date">May 2026</span>
-          </div>
-          <ul class="tl-changes">
-            <li>Fixed issues where blur was not working previously</li>
-            <li>Dynamic Bar: Further under-the-hood optimizations for better responsiveness</li>
-            <li>Sandbox: Performance optimizations for the system sandbox</li>
-            <li>Charging Info: Improved keyguard charging info accuracy and layout</li>
-            <li>Visuals: Optimized wallpaper zoom transitions for a smoother UI feel</li>
-          </ul>
-          <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" class="tl-link">
-            <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            Full changelog on GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- v3.10 -->
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-header">
-            <span class="tl-version">v3.10</span>
-            <span class="tl-date">May 2026</span>
-          </div>
-          <ul class="tl-changes">
-            <li>Added working torch intensity control</li>
-            <li>Introduced QS panel media & widget slider</li>
-            <li>Added launcher swipe-up gesture for freeform mode</li>
-            <li>Neumatic clock style and 13 random clock styles</li>
-            <li>Swift and Facebook emoji styles</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- v3.9 -->
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-header">
-            <span class="tl-version">v3.9</span>
-            <span class="tl-date">Apr 2026</span>
-          </div>
-          <ul class="tl-changes">
-            <li>Fixed audio service Prime core drain</li>
-            <li>Fixed ongoing chip art for Spotify</li>
-            <li>Fixed dynamic bar glitches</li>
-            <li>Resolved minor color customization bugs</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- v3.8 Hotfix -->
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-header">
-            <span class="tl-version">v3.8 Hotfix</span>
-            <span class="tl-date">23 Mar 2026</span>
-          </div>
-          <ul class="tl-changes">
-            <li>Add battery indicator in notch ring</li>
-            <li>Allow change custom clock size</li>
-            <li>Music progress ring in notch ring</li>
-            <li>Introduce appdrawer styles</li>
-          </ul>
-        </div>
-      </div>
-
+      <p class="hero-subtitle rev d3">
+        Track every feature introduction, kernel optimization, and bug fix across all Lunaris AOSP releases for the Redmi K50i.
+      </p>
     </div>
-  </section>
 
-  <footer class="premium-footer scroll-reveal">
-    <div class="footer-grid">
-      <div class="footer-col brand-col">
-        <span class="footer-logo">LUNARIS AOSP</span>
-        <p class="footer-desc">A premium, high-performance custom Android experience crafted meticulously for the Redmi K50i.</p>
+    <!-- SEARCH FILTER -->
+    <section class="scroll-reveal" style="max-width:800px;margin:0 auto 36px;padding:0 20px;">
+      <div class="dl-search-bar" style="margin-bottom:0;">
+        <span class="dl-search-icon">🔍</span>
+        <input type="text" id="cl-search" class="dl-search-input" placeholder="Search changelogs (e.g. Fenrir, Dolby, clock, battery, Dynamic Bar)..." oninput="filterChangelog()" aria-label="Search changelogs">
       </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <a href="index.html">Home</a>
-        <a href="downloads.html">Downloads</a>
-        <a href="guide.html">Flashing Guide</a>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section class="timeline-section scroll-reveal" id="changelog-section">
+      <div class="timeline" id="changelog-timeline">
+
+        <!-- v3.13 Entry — LATEST -->
+        <div class="tl-item" data-keywords="v3.13 latest november modular qs compose settings lunaris bar hyperos clocks system engine ios stacked notification ripple moto dialer lock gallery custom clock maker blur edge light android 17 monet smartspace themestore duck dolby vanilla fastboot">
+          <div class="tl-dot latest"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-version-wrap">
+                <span class="tl-version">Lunaris v3.13</span>
+                <span class="dl-ver-badge new" style="font-size:0.65rem;padding:3px 10px;">✦ Latest</span>
+              </div>
+              <span class="tl-date">November 2026</span>
+            </div>
+            <ul class="tl-changes">
+              <li><strong>Quick Settings:</strong> Introduced new modular Quick Settings (QS) panel architecture</li>
+              <li><strong>Settings:</strong> Redesigned Settings homepage UI built with Jetpack Compose</li>
+              <li><strong>Interface:</strong> Introduced Lunaris Bar dynamic status and island interface</li>
+              <li><strong>System Engine:</strong> Introduced Lunaris System Engine for deeper performance tuning</li>
+              <li><strong>Platform:</strong> Tons of Android 17 backports and system runtime optimizations</li>
+              <li><strong>Camera:</strong> Backported Android 17 front selfie framing features</li>
+              <li><strong>Theming:</strong> Introduced Lunaris Monet color engine with enhanced harmonic palettes</li>
+              <li><strong>Theme Store:</strong> Completely redesigned Theme Store with live catalog previews</li>
+              <li><strong>Launcher:</strong> Launcher3 advanced Smartspace integration with rich glance widgets</li>
+              <li><strong>Search:</strong> Universal system-wide search integrated into launcher and drawer</li>
+              <li><strong>Lockscreen:</strong> Added full Custom Clock Maker tool in personalization settings</li>
+              <li><strong>Lockscreen:</strong> Introduced Lock Gallery to browse and preview custom lockscreen themes</li>
+              <li><strong>Clock Styles:</strong> Added HyperOS-inspired modern clocks &amp; artistic Graffiti clocks</li>
+              <li><strong>Lockscreen Effects:</strong> Dynamic clock 3D rotation and tilt-shift depth perspective</li>
+              <li><strong>Lockscreen:</strong> Real-time background blur shader support for lockscreen clocks</li>
+              <li><strong>Lockscreen Widgets:</strong> Added lockscreen app widget slots designed for Lunaris clocks</li>
+              <li><strong>Notifications:</strong> iOS-style stacked notification layout &amp; Motorola glance style</li>
+              <li><strong>Animations:</strong> Interactive water ripple unlock animation &amp; alternate zoom transitions</li>
+              <li><strong>Visual Effects:</strong> OneUI-style unlock edge lighting &amp; expanded charging animations</li>
+              <li><strong>System Apps:</strong> Brand-new in-call Dialer UI &amp; modernized Package Installer</li>
+              <li><strong>Editions:</strong> Released in both Dolby Atmos and Clean Vanilla Fastboot builds</li>
+              <li><strong>Security &amp; Fixes:</strong> Duck integrity passing out-of-the-box and core stability improvements</li>
+            </ul>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:16px;">
+              <a href="downloads.html" class="btn bp" style="font-size:0.82rem;padding:8px 16px;">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download v3.13 ROMs (Dolby &amp; Vanilla) →
+              </a>
+              <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="tl-link" style="margin-top:0;">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                Full changelog on GitHub ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- v3.12 Entry -->
+        <div class="tl-item" data-keywords="v3.12 stable august fenrir ram qs dynamic bar lyrics clock blur">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-version-wrap">
+                <span class="tl-version">Lunaris v3.12</span>
+                <span class="dl-ver-badge stable" style="font-size:0.65rem;padding:3px 10px;">Stable</span>
+              </div>
+              <span class="tl-date">August 2026</span>
+            </div>
+            <ul class="tl-changes">
+              <li><strong>Kernel:</strong> New Fenrir LK scheduler tuned for Dimensity 8100</li>
+              <li><strong>Memory:</strong> Improved RAM management and background process priority</li>
+              <li><strong>System UI:</strong> Enhanced QS tile expansion and fluid bounce animations</li>
+              <li><strong>Haptics:</strong> Calibrated brightness slider haptic clicks</li>
+              <li><strong>Interface:</strong> Optimized Dynamic Bar island sizing and transition smoothness</li>
+              <li><strong>Visuals:</strong> Tuned launcher blur shaders and shade background rendering</li>
+              <li><strong>Lockscreen:</strong> Refined custom clock layouts and typography sizing</li>
+              <li><strong>Media:</strong> Synchronized live lyrics timing with audio output</li>
+            </ul>
+            <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="tl-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              Full changelog on GitHub ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- v3.11 Entry -->
+        <div class="tl-item" data-keywords="v3.11 june dolby atmos wifi signal recents monet weather clocks album art">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-version-wrap">
+                <span class="tl-version">Lunaris v3.11</span>
+                <span class="dl-ver-badge stable" style="font-size:0.65rem;padding:3px 10px;">Stable</span>
+              </div>
+              <span class="tl-date">June 2026</span>
+            </div>
+            <ul class="tl-changes">
+              <li><strong>Audio:</strong> Integrated system-wide Dolby Atmos DSP processing</li>
+              <li><strong>Status Bar:</strong> Corrected WiFi &amp; cellular signal icon proportions</li>
+              <li><strong>Multitasking:</strong> Smoother custom recents app switching physics</li>
+              <li><strong>Media:</strong> Fixed QS media player position reset bug between QQS and QS</li>
+              <li><strong>Status Bar:</strong> Resolved battery percentage tinting issue with light backgrounds</li>
+              <li><strong>Lockscreen:</strong> Added 15 new clock styles with real-time weather integration</li>
+              <li><strong>Theming:</strong> Advanced Monet customisation engine with custom color palettes</li>
+              <li><strong>Lockscreen:</strong> Album art color extraction override for lockscreen clocks</li>
+            </ul>
+            <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="tl-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              Full changelog on GitHub ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- v3.10 Hotfix 1.2 Entry -->
+        <div class="tl-item" data-keywords="v3.10 hotfix 1.2 may skydrove idle sleep gemini split qs oneui app lock">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-version-wrap">
+                <span class="tl-version">Lunaris v3.10 Hotfix 1.2</span>
+                <span class="dl-ver-badge hotfix" style="font-size:0.65rem;padding:3px 10px;">Hotfix 1.2</span>
+              </div>
+              <span class="tl-date">May 2026</span>
+            </div>
+            <ul class="tl-changes">
+              <li><strong>Theming:</strong> Added skydrove color customization for lockscreen clock styles</li>
+              <li><strong>Settings:</strong> Interactive visual browser to preview all available clocks</li>
+              <li><strong>Gestures:</strong> Statusbar swipe-to-adjust brightness control</li>
+              <li><strong>Battery:</strong> Idle manager trigger option to activate strictly when sleep mode is on</li>
+              <li><strong>Gestures:</strong> Power button Gemini assistant trigger animation</li>
+              <li><strong>Performance:</strong> Resolved frame drops in OneUI app drawer layout style</li>
+              <li><strong>Interface:</strong> Added initial split Quick Settings option</li>
+              <li><strong>Security:</strong> Fixed app lock notification content leakage</li>
+            </ul>
+            <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="tl-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              Full changelog on GitHub ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- v3.10 Hotfix Entry -->
+        <div class="tl-item" data-keywords="v3.10 hotfix may blur dynamic bar sandbox charging wallpaper">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-version-wrap">
+                <span class="tl-version">Lunaris v3.10 Hotfix</span>
+                <span class="dl-ver-badge hotfix" style="font-size:0.65rem;padding:3px 10px;">Hotfix</span>
+              </div>
+              <span class="tl-date">May 2026</span>
+            </div>
+            <ul class="tl-changes">
+              <li><strong>Graphics:</strong> Fixed shader glitches where background blur failed to render</li>
+              <li><strong>Dynamic Bar:</strong> Under-the-hood touch latency optimizations</li>
+              <li><strong>Sandbox:</strong> Performance improvements for the Android runtime sandbox</li>
+              <li><strong>Charging:</strong> Improved lockscreen charging wattage accuracy and layout</li>
+              <li><strong>Animations:</strong> Smoother wallpaper zoom transitions on device unlock</li>
+            </ul>
+            <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="tl-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              Full changelog on GitHub ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- v3.10 Entry -->
+        <div class="tl-item" data-keywords="v3.10 may torch intensity qs widget slider neumatic cpu info freeform">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-version-wrap">
+                <span class="tl-version">Lunaris v3.10</span>
+                <span class="dl-ver-badge stable" style="font-size:0.65rem;padding:3px 10px;">Stable</span>
+              </div>
+              <span class="tl-date">May 2026</span>
+            </div>
+            <ul class="tl-changes">
+              <li><strong>Hardware:</strong> Functional multi-level torch intensity control</li>
+              <li><strong>Quick Settings:</strong> Redesigned media player widget and volume slider</li>
+              <li><strong>Gestures:</strong> Launcher swipe-up gesture for instant freeform window mode</li>
+              <li><strong>Clock Styles:</strong> Neumatic clock style + 13 randomized clock presets</li>
+              <li><strong>Lockscreen:</strong> Real-time lockscreen CPU frequency and load overlay</li>
+              <li><strong>Personalization:</strong> Swift and Facebook emoji pack selectors</li>
+            </ul>
+            <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="tl-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              Full changelog on GitHub ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- v3.9 Entry -->
+        <div class="tl-item" data-keywords="v3.9 april audio prime core drain spotify chip art dynamic bar bugs">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-version-wrap">
+                <span class="tl-version">Lunaris v3.9</span>
+                <span class="dl-ver-badge stable" style="font-size:0.65rem;padding:3px 10px;">Stable</span>
+              </div>
+              <span class="tl-date">April 2026</span>
+            </div>
+            <ul class="tl-changes">
+              <li><strong>Kernel &amp; Power:</strong> Fixed audio service CPU lock preventing Prime core sleep</li>
+              <li><strong>Status Bar:</strong> Fixed ongoing chip art displaying incorrectly for Spotify</li>
+              <li><strong>Dynamic Bar:</strong> Resolved orientation rotation glitches</li>
+              <li><strong>Personalization:</strong> Fixed custom color picker opacity reset bug</li>
+            </ul>
+            <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="tl-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              Full changelog on GitHub ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- v3.8 Hotfix Entry -->
+        <div class="tl-item" data-keywords="v3.8 hotfix march notch battery ring music progress appdrawer">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-version-wrap">
+                <span class="tl-version">Lunaris v3.8 Hotfix</span>
+                <span class="dl-ver-badge stable" style="font-size:0.65rem;padding:3px 10px;">Stable</span>
+              </div>
+              <span class="tl-date">March 23, 2026</span>
+            </div>
+            <ul class="tl-changes">
+              <li><strong>Status Bar:</strong> Added battery percentage ring indicator around camera punch-hole</li>
+              <li><strong>Lockscreen:</strong> Slider to adjust custom clock scaling and padding</li>
+              <li><strong>Media:</strong> Visual music progress ring around camera notch during playback</li>
+              <li><strong>Launcher:</strong> Introduced multiple customizable app drawer styles</li>
+            </ul>
+            <a href="https://github.com/itsrohan17/Lunaris-Aosp-xaga/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="tl-link">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              Full changelog on GitHub ↗
+            </a>
+          </div>
+        </div>
+
       </div>
-      <div class="footer-col">
-        <h4>Community & Source</h4>
-        <a href="https://github.com/Lunaris-AOSP" target="_blank">Source Code (Lunaris)</a>
-        <a href="https://github.com/itsrohan17" target="_blank">Maintainer (itsrohan17)</a>
-        <a href="https://t.me/screenshotsxaga" target="_blank">Telegram Updates</a>
-        <a href="https://t.me/XAGASupport" target="_blank">Report a Bug / Support</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="premium-footer scroll-reveal">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="footer-logo-row">
+            <div class="nav-logo-icon">🌕</div>
+            <span class="footer-logo">LUNARIS AOSP</span>
+          </div>
+          <p class="footer-desc">
+            A meticulously crafted custom Android 16 experience for the Redmi K50i (xaga), combining LineageOS stability with deep customization and speed.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Overview</a>
+          <a href="downloads.html">Downloads</a>
+          <a href="changelog.html">Changelogs</a>
+          <a href="guide.html">Flashing Guide</a>
+        </div>
+        <div class="footer-col">
+          <h4>Community & Support</h4>
+          <a href="https://github.com/itsrohan17" target="_blank" rel="noopener noreferrer">Maintainer GitHub (itsrohan17)</a>
+          <a href="https://github.com/Lunaris-AOSP" target="_blank" rel="noopener noreferrer">Source Code (Lunaris-AOSP)</a>
+          <a href="https://t.me/screenshotsxaga" target="_blank" rel="noopener noreferrer">Telegram Channel (Updates)</a>
+          <a href="https://t.me/XAGASupport" target="_blank" rel="noopener noreferrer">Telegram Group (Support)</a>
+        </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="device-info">
-        <span><span class="info-label">Device</span> xaga (Redmi K50i)</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Android</span> 16</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Last Build</span> Aug 2026</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Maintainer</span> dev Rohan</span>
+
+      <div class="footer-bottom">
+        <div class="device-info">
+          <span><span class="info-label">Device</span> xaga (Redmi K50i)</span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Android</span> 16</span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Latest</span> <span class="live-tag">v3.13</span></span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Maintainer</span> dev Rohan</span>
+        </div>
+        <p class="copyright">© 2026 Lunaris AOSP. Crafted with precision for Redmi K50i.</p>
       </div>
-      <p class="copyright">© 2026 Lunaris AOSP. All rights reserved.</p>
-    </div>
-  </footer>
+    </footer>
+  </main>
 
   <script>
-    (function () {
-      const isMobile = window.LUNARIS_IS_MOBILE ?? matchMedia('(max-width:767px)').matches;
-    })();
+    function filterChangelog() {
+      const query = document.getElementById('cl-search').value.toLowerCase().trim();
+      const items = document.querySelectorAll('#changelog-timeline .tl-item');
+      items.forEach(item => {
+        const text = (item.textContent + ' ' + (item.getAttribute('data-keywords') || '')).toLowerCase();
+        if (!query || text.includes(query)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
   </script>
 </body>
+
 </html>

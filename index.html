@@ -4,32 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#03050a">
-  <title>Lunaris AOSP · Redmi K50i (xaga)</title>
+  <meta name="theme-color" content="#03050d">
+  <title>Lunaris AOSP · Redmi K50i (xaga) | Official Android 16</title>
 
-  <meta name="description" content="Lunaris AOSP for Redmi K50i (xaga) — A high-performance, ultra-smooth, customizable custom Android OS based on Android 16 and LineageOS.">
-  <meta name="keywords" content="Lunaris AOSP, Redmi K50i, xaga, Android 16, LineageOS, Custom ROM, Dimensity 8100">
+  <meta name="description" content="Lunaris AOSP for Redmi K50i (xaga) — High-performance, ultra-smooth, customizable custom Android OS based on Android 16 and LineageOS.">
+  <meta name="keywords" content="Lunaris AOSP, Redmi K50i, xaga, Android 16, LineageOS, Custom ROM, Dimensity 8100, Fastboot ROM">
   <meta name="author" content="dev Rohan (itsrohan17)">
   <link rel="canonical" href="https://itsrohan17.github.io/Lunaris-Aosp-Xaga-website/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://itsrohan17.github.io/Lunaris-Aosp-Xaga-website/">
-  <meta property="og:title" content="Lunaris AOSP · Redmi K50i (xaga)">
+  <meta property="og:title" content="Lunaris AOSP · Redmi K50i (xaga) | Android 16">
   <meta property="og:description" content="High-performance, ultra-smooth custom Android OS for the Redmi K50i. Android 16 based.">
   <meta property="og:site_name" content="Lunaris AOSP">
+  <meta property="og:image" content="screenshots/homescreen.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lunaris AOSP · Redmi K50i (xaga)">
   <meta name="twitter:description" content="High-performance, ultra-smooth custom Android OS for the Redmi K50i. Android 16 based.">
+  <meta name="twitter:image" content="screenshots/homescreen.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌕</text></svg>">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="perf.css">
@@ -46,7 +48,7 @@
     "@type": "SoftwareApplication",
     "name": "Lunaris AOSP",
     "operatingSystem": "Android 16",
-    "applicationCategory": "Mobile OS",
+    "applicationCategory": "Mobile Operating System",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -58,905 +60,82 @@
     }
   }
   </script>
-
-  <style>
-    :root {
-      --bg: #03050a;
-      --bg-gradient: radial-gradient(circle at top, #0d1126 0%, #03050a 70%);
-      --border: rgba(255, 255, 255, 0.06);
-      --violet: #a78bfa;
-      --accent: #8b5cf6;
-      --sky: #38bdf8;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --glass: rgba(255, 255, 255, 0.03);
-      --glass-border: rgba(255, 255, 255, 0.08);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg);
-      background-image: var(--bg-gradient);
-      color: var(--text);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .ambient-glow {
-      position: fixed;
-      top: -20vh;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120vw;
-      height: 100vh;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 60%);
-      z-index: 0;
-      pointer-events: none;
-      animation: nebulaBreathe 12s ease-in-out infinite alternate;
-    }
-
-    @media (max-width: 768px) {
-      .ambient-glow {
-        animation: none;
-        opacity: 0.8;
-      }
-    }
-
-    @keyframes nebulaBreathe {
-      0% {
-        transform: translateX(-50%) scale(1);
-        opacity: 0.8;
-      }
-
-      100% {
-        transform: translateX(-48%) scale(1.05);
-        opacity: 1;
-      }
-    }
-
-    #pc {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.7;
-    }
-
-    .rev {
-      opacity: 0;
-      transform: translate3d(0, 20px, 0);
-      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-      }
-    }
-
-    .d1 {
-      animation-delay: 0.1s;
-    }
-
-    .d2 {
-      animation-delay: 0.2s;
-    }
-
-    .d3 {
-      animation-delay: 0.3s;
-    }
-
-    .d4 {
-      animation-delay: 0.4s;
-    }
-
-    .d5 {
-      animation-delay: 0.5s;
-    }
-
-    .d6 {
-      animation-delay: 0.6s;
-    }
-
-    header {
-      position: relative;
-      z-index: 10;
-      padding: 24px 16px 0;
-      text-align: center;
-    }
-
-    .hero-content {
-      margin-top: 8px;
-    }
-
-    .title-wrap {
-      margin-bottom: 4px;
-    }
-
-    h1 {
-      font-size: clamp(3rem, 10vw, 6.5rem);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #fff 0%, #c4b5fd 25%, #818cf8 50%, #c4b5fd 75%, #fff 100%);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 24px;
-      animation: gradientShift 8s ease infinite;
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      background: rgba(139, 92, 246, 0.1);
-      border: 1px solid rgba(139, 92, 246, 0.2);
-      padding: 6px 16px;
-      border-radius: 30px;
-      margin-bottom: 12px;
-      color: var(--violet);
-    }
-
-    .maint {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 40px;
-    }
-
-
-
-    .gh-stats {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
-    }
-
-    .gh-stat {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      padding: 6px 14px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .gh-stat-val {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 80px;
-      position: relative;
-      z-index: 20;
-    }
-
-    .btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      font-weight: 500;
-      font-size: 0.9rem;
-      border-radius: 12px;
-      text-decoration: none;
-      color: #fff;
-      border: 1px solid transparent;
-      cursor: pointer;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-    }
-
-    .btn:active {
-      transform: translateY(1px);
-    }
-
-    .btn::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-      transform: skewX(-20deg);
-      transition: 0.6s ease;
-    }
-
-    .btn:hover::after {
-      left: 150%;
-    }
-
-    .bp {
-      background: #8b5cf6;
-      border-color: #a78bfa;
-      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.2);
-    }
-
-    .bp:hover {
-      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.6);
-      border-color: #ddd6fe;
-    }
-
-    .bs {
-      background: #2563eb;
-      border-color: #60a5fa;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
-    }
-
-    .bs:hover {
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.6);
-      border-color: #bfdbfe;
-    }
-
-    .bg {
-      background: var(--glass);
-      border-color: var(--glass-border);
-      backdrop-filter: blur(10px);
-    }
-
-    .bg:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    }
-
-    .bcl {
-      background: #059669;
-      border-color: #34d399;
-      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.2);
-    }
-
-    .bcl:hover {
-      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.6);
-      border-color: #a7f3d0;
-    }
-
-    .divider {
-      position: relative;
-      text-align: center;
-      margin: 0 auto 40px;
-      max-width: 960px;
-    }
-
-    .divider::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.4), transparent);
-    }
-
-    .divider span {
-      position: relative;
-      z-index: 1;
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.1em;
-      color: var(--violet);
-      background: var(--bg);
-      padding: 0 18px;
-      text-transform: uppercase;
-    }
-
-    .features {
-      position: relative;
-      z-index: 10;
-      padding: 0 16px 56px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 768px) {
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .feat {
-      padding: 32px 24px;
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      text-align: left;
-      backdrop-filter: blur(12px);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, background 0.3s, box-shadow 0.3s;
-    }
-
-    .feat.visible { opacity: 1; transform: translateY(0); }
-    .feat:nth-child(1) { transition-delay: 0s; }
-    .feat:nth-child(2) { transition-delay: 0.15s; }
-    .feat:nth-child(3) { transition-delay: 0.3s; }
-
-    .feat:hover {
-      transform: translateY(-4px);
-      border-color: rgba(139, 92, 246, 0.4);
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
-    }
-
-    .feat-icon {
-      font-size: 1.8rem;
-      margin-bottom: 16px;
-      display: inline-block;
-      animation: floatIcon 3s ease-in-out infinite;
-    }
-
-    @keyframes floatIcon {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    .feat:nth-child(2) .feat-icon { animation-delay: 0.5s; }
-    .feat:nth-child(3) .feat-icon { animation-delay: 1s; }
-
-    .feat-title {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--text);
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .feat-desc {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .ss {
-      position: relative;
-      z-index: 10;
-      padding: 0 14px 60px;
-    }
-
-    .ss-filters {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-
-    .filter-btn {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      color: var(--muted);
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .filter-btn:hover {
-      background: rgba(139, 92, 246, 0.1);
-      color: var(--text);
-    }
-
-    .filter-btn.active {
-      background: rgba(139, 92, 246, 0.2);
-      border-color: var(--violet);
-      color: var(--violet);
-      font-weight: 600;
-    }
-
-    .carousel-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .ss-carousel {
-      display: flex;
-      gap: 24px;
-      overflow-x: auto;
-      padding: 10px 10px 40px;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior-x: contain;
-      touch-action: pan-x pan-y;
-      scrollbar-width: thin;
-      scrollbar-color: var(--violet) var(--bg);
-    }
-
-    .ss-carousel::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    .ss-carousel::-webkit-scrollbar-track {
-      background: var(--bg);
-      border-radius: 10px;
-    }
-
-    .ss-carousel::-webkit-scrollbar-thumb {
-      background: var(--violet);
-      border-radius: 10px;
-    }
-
-    .pw {
-      flex: 0 0 auto;
-      width: 220px;
-      scroll-snap-align: center;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    .pf {
-      border-radius: 20px;
-      border: 1px solid var(--glass-border);
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      overflow: hidden;
-      aspect-ratio: 9/19.5;
-      background: #0c1020;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .pf::after {
-      content: '🔍';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .pf:hover {
-      transform: scale(1.05) translateY(-5px) rotate(-1deg);
-      border-color: var(--violet);
-      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
-    }
-
-    .pf:hover::after {
-      opacity: 1;
-    }
-
-    .pf img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
-
-    .pf:hover img {
-      transform: scale(1.02);
-    }
-
-    .pl {
-      text-align: center;
-      margin-top: 12px;
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    @media (max-width: 600px) {
-      .pw {
-        width: 180px;
-      }
-    }
-
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 999999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(3, 5, 10, 0.95);
-      backdrop-filter: blur(10px);
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .lightbox.show {
-      display: flex;
-      opacity: 1;
-    }
-
-    .lightbox-content {
-      max-height: 90vh;
-      max-width: 90vw;
-      border-radius: 24px;
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-      transform: scale(0.95);
-      transition: transform 0.3s ease;
-    }
-
-    .lightbox.show .lightbox-content {
-      transform: scale(1);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: 300;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .lightbox-close:hover {
-      color: var(--violet);
-    }
-
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid var(--glass-border);
-      cursor: pointer;
-      font-size: 24px;
-      padding: 16px 20px;
-      border-radius: 50%;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-      z-index: 1000000;
-      outline: none;
-    }
-
-    .lightbox-nav:hover {
-      background: rgba(139, 92, 246, 0.5);
-      border-color: var(--violet);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .lightbox-prev {
-      left: 20px;
-    }
-
-    .lightbox-next {
-      right: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .lightbox-nav {
-        padding: 12px 16px;
-        font-size: 18px;
-      }
-
-      .lightbox-prev {
-        left: 10px;
-      }
-
-      .lightbox-next {
-        right: 10px;
-      }
-    }
-
-    .premium-footer {
-      position: relative;
-      z-index: 10;
-      background: rgba(5, 8, 20, 0.6);
-      border-top: 1px solid var(--glass-border);
-      padding: 60px 20px 30px;
-      margin-top: 40px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      max-width: 1000px;
-      margin: 0 auto 40px;
-    }
-
-    @media (max-width: 768px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-    }
-
-    .footer-col h4 {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--text);
-      margin-bottom: 20px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .footer-col a {
-      display: block;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      margin-bottom: 12px;
-      transition: color 0.2s, padding-left 0.2s;
-    }
-
-    .footer-col a:hover {
-      color: var(--violet);
-      padding-left: 5px;
-    }
-
-    .brand-col .footer-logo {
-      font-weight: 800;
-      font-size: 1.2rem;
-      letter-spacing: 0.1em;
-      color: var(--text);
-      display: block;
-      margin-bottom: 12px;
-    }
-
-    .brand-col .footer-desc {
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.6;
-      max-width: 300px;
-    }
-
-    @media (max-width: 768px) {
-      .brand-col .footer-desc {
-        margin: 0 auto;
-      }
-    }
-
-    .footer-bottom {
-      max-width: 1000px;
-      margin: 0 auto;
-      border-top: 1px solid var(--glass-border);
-      padding-top: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .device-info {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--muted);
-      background: var(--glass);
-      padding: 10px 24px;
-      border-radius: 30px;
-      border: 1px solid var(--glass-border);
-    }
-
-    .info-label {
-      color: var(--violet);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-right: 4px;
-    }
-
-    .dot-sep {
-      color: rgba(255, 255, 255, 0.2);
-    }
-
-    .copyright {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .community-popup {
-      position: fixed;
-      width: 240px;
-      background: rgba(10, 12, 28, 0.95);
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      border-radius: 16px;
-      padding: 8px;
-      z-index: 999999;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.96);
-      transition: opacity 0.2s, transform 0.2s;
-      backdrop-filter: blur(10px);
-    }
-
-    .community-popup.open {
-      opacity: 1;
-      pointer-events: all;
-      transform: scale(1);
-    }
-
-    .comm-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      border-radius: 10px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .comm-item:hover {
-      background: rgba(139, 92, 246, 0.1);
-    }
-
-    .comm-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: #2563eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: #fff;
-    }
-
-    .comm-icon.comm-icon-support {
-      background: #8b5cf6;
-    }
-
-    .comm-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      flex: 1;
-    }
-
-    .comm-title {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--text);
-    }
-
-    .comm-sub {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--muted);
-    }
-
-    .comm-divider {
-      height: 1px;
-      background: var(--glass-border);
-      margin: 4px 8px;
-    }
-
-    .skeleton {
-      display: inline-block;
-      min-width: 40px;
-      height: 14px;
-      background: #1e293b;
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(139, 92, 246, 0.5);
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(139, 92, 246, 0.8);
-    }
-
-    .chip {
-      background: linear-gradient(90deg, rgba(139,92,246,0.1) 0%, rgba(139,92,246,0.25) 50%, rgba(139,92,246,0.1) 100%);
-      background-size: 200% 100%;
-      animation: chipShimmer 4s ease-in-out infinite;
-    }
-
-    @keyframes chipShimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-
-    .footer-col a { position: relative; }
-    .footer-col a::before { content: '→'; position: absolute; left: -15px; opacity: 0; transform: translateX(-5px); transition: opacity 0.2s, transform 0.2s; color: var(--violet); }
-    .footer-col a:hover::before { opacity: 1; transform: translateX(0); }
-
-    .scroll-reveal { opacity: 0; transform: translate3d(0, 24px, 0); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
-    .scroll-reveal.active { opacity: 1; transform: translate3d(0, 0, 0); }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-    }
-  </style>
-
 </head>
 
 <body>
 
-  <canvas id="pc" data-linked></canvas>
-  <div class="ambient-glow" id="nebula"></div>
+  <canvas id="pc" data-linked aria-hidden="true"></canvas>
+  <div class="ambient-glow" id="nebula" aria-hidden="true"></div>
 
+  <!-- NAVIGATION HEADER -->
   <header>
-    <nav class="nav scroll-reveal" aria-label="Main Navigation">
-      <a href="index.html" style="text-decoration:none;"><span class="nav-logo">LUNARIS</span></a>
-      <span class="nav-badge">BUILD 2026 · XAGA</span>
-      <div class="nav-dot" aria-hidden="true"></div>
+    <nav class="nav-container scroll-reveal" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo-icon">🌕</div>
+        <span class="nav-logo-text">LUNARIS</span>
+        <span class="nav-badge-pill">XAGA · 2026</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Overview</a></li>
+        <li><a href="downloads.html" class="nav-link">Downloads</a></li>
+        <li><a href="changelog.html" class="nav-link">Changelogs</a></li>
+        <li><a href="guide.html" class="nav-link">Flashing Guide</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="downloads.html" class="btn bp" style="padding:8px 18px;font-size:0.82rem;border-radius:999px;">
+          <span>Get ROM</span>
+        </a>
+        <div class="nav-dot" title="Project Active" aria-label="Build Status Active"></div>
+        <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu" onclick="document.getElementById('mobile-drawer').classList.toggle('open')">
+          ☰
+        </button>
+      </div>
     </nav>
-    <div class="hero-content">
-      <div class="title-wrap rev d1">
-        <h1>LUNARIS<br>AOSP</h1>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu-drawer" id="mobile-drawer">
+      <a href="index.html" class="nav-link active" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Overview</a>
+      <a href="downloads.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Downloads</a>
+      <a href="changelog.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Changelogs</a>
+      <a href="guide.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Flashing Guide</a>
+      <a href="https://t.me/screenshotsxaga" target="_blank" rel="noopener noreferrer" class="nav-link" style="color:var(--sky);">Telegram Updates ↗</a>
+      <a href="https://github.com/itsrohan17" target="_blank" rel="noopener noreferrer" class="nav-link" style="color:var(--violet);">Maintainer GitHub ↗</a>
+    </div>
+  </header>
+
+  <main id="page-root">
+    <!-- HERO SECTION -->
+    <section class="hero-wrapper">
+      <div class="rev d1">
+        <div class="hero-pill-badge">
+          <span class="pulse-green"></span>
+          <span>Android 16 Official · Redmi K50i (xaga)</span>
+        </div>
       </div>
+
       <div class="rev d2">
-        <div class="chip">Redmi K50i (xaga)</div>
+        <h1 class="hero-title">LUNARIS<br>AOSP</h1>
       </div>
-      <p class="maint rev d2">Maintained by <strong style="color:#c4b5fd">dev Rohan</strong></p>
+
 
       <div class="gh-stats rev d3" id="gh-stats">
         <div class="gh-stat">
-          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
           </svg>
-          <span>Latest: </span><span class="gh-stat-val" id="gh-ver"><span class="skeleton"></span></span>
+          <span>Latest Release: </span><span class="gh-stat-val" id="gh-ver"><span class="skeleton"></span></span>
         </div>
         <div class="gh-stat">
-          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span>Build Date: </span><span class="gh-stat-val" id="gh-date"><span class="skeleton"></span></span>
+        </div>
+        <div class="gh-stat">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
           <span>Downloads: </span><span class="gh-stat-val" id="gh-dl"><span class="skeleton"></span></span>
         </div>
@@ -964,347 +143,217 @@
 
       <div class="btns rev d4">
         <a href="downloads.html" class="btn bp">
-          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
-          Download ROM
+          Download ROM (Fastboot &amp; Recovery)
         </a>
-        <div class="community-wrap">
-          <button class="btn bs" id="comm-btn" onclick="toggleCommunity(event)">
-            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+        <div class="community-wrap" style="position:relative;">
+          <button class="btn bs" id="comm-btn" onclick="toggleCommunity(event)" aria-haspopup="true" aria-expanded="false">
+            <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
             </svg>
             Join Community
           </button>
         </div>
-        <a href="https://github.com/itsrohan17" target="_blank" rel="noopener noreferrer" class="btn bg">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
+        <a href="https://github.com/itsrohan17" target="_blank" rel="noopener noreferrer" class="btn bg" aria-label="Maintainer GitHub (itsrohan17)">
+          <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
           </svg>
           itsrohan17
         </a>
         <a href="changelog.html" class="btn bcl">
-          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
           Changelogs
         </a>
         <a href="guide.html" class="btn bg">
-          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
           Flashing Guide
         </a>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- INTERACTIVE SCREENSHOTS CAROUSEL -->
-  <section class="ss scroll-reveal" style="padding-top: 40px; padding-bottom: 80px;">
-    <div class="divider rev d6"><span>Gallery</span></div>
+    <!-- THE LUNARIS EXPERIENCE / GALLERY -->
+    <section class="gallery-section scroll-reveal" id="gallery">
+      <div class="section-divider">
+        <div class="section-divider-content">
+          <span class="section-tag">THE LUNARIS EXPERIENCE</span>
+        </div>
+        <h2 class="section-heading">More Than Just Android.</h2>
+        <p class="section-desc">Carefully tuned features, thoughtful customizations and performance that feels right.</p>
+      </div>
 
-    <div class="ss-filters rev d6">
-      <button class="filter-btn active" onclick="filterGallery('all')">All</button>
-      <button class="filter-btn" onclick="filterGallery('home')">Home</button>
-      <button class="filter-btn" onclick="filterGallery('ui')">UI</button>
-      <button class="filter-btn" onclick="filterGallery('settings')">Settings</button>
-    </div>
+      <div class="gallery-header-row">
+        <div class="ss-filters" role="tablist" aria-label="Gallery Filters">
+          <button class="filter-btn active" onclick="filterGallery('all', this)" role="tab" aria-selected="true">All Screenshots</button>
+          <button class="filter-btn" onclick="filterGallery('home', this)" role="tab" aria-selected="false">Home & Lockscreen</button>
+          <button class="filter-btn" onclick="filterGallery('ui', this)" role="tab" aria-selected="false">System UI</button>
+          <button class="filter-btn" onclick="filterGallery('settings', this)" role="tab" aria-selected="false">Personalization</button>
+        </div>
 
-    <div class="carousel-container">
-      <div class="ss-carousel" id="ss-carousel">
-        <div class="pw" data-cat="home">
-          <div class="pf"><img src="screenshots/lock%20screen.png" alt="Lock Screen" onclick="openModal(this.src)"
-              loading="lazy"></div>
-          <p class="pl">Lock Screen</p>
+        <div class="gallery-nav-buttons">
+          <button class="gallery-arrow-btn" onclick="scrollGallery('prev')" aria-label="Scroll gallery left">‹</button>
+          <button class="gallery-arrow-btn" onclick="scrollGallery('next')" aria-label="Scroll gallery right">›</button>
         </div>
-        <div class="pw" data-cat="home">
-          <div class="pf"><img src="screenshots/lock%20screen%202.jpg" alt="Lock Screen Alt"
-              onclick="openModal(this.src)" loading="lazy"></div>
-          <p class="pl">Lock Screen 2</p>
-        </div>
-        <div class="pw" data-cat="home">
-          <div class="pf"><img src="screenshots/homescreen.png" alt="Homescreen" onclick="openModal(this.src)"
-              loading="lazy"></div>
-          <p class="pl">Homescreen</p>
-        </div>
-        <div class="pw" data-cat="home">
-          <div class="pf"><img src="screenshots/Depth%20wallpaper.jpg" alt="Depth Wallpaper"
-              onclick="openModal(this.src)" loading="lazy"></div>
-          <p class="pl">Depth Wallpaper</p>
-        </div>
-        <div class="pw" data-cat="home">
-          <div class="pf"><img src="screenshots/appdrawer.png" alt="App Drawer" onclick="openModal(this.src)"
-              loading="lazy"></div>
-          <p class="pl">App Drawer</p>
-        </div>
-        <div class="pw" data-cat="ui">
-          <div class="pf"><img src="screenshots/qs%20panel.png" alt="QS Panel" onclick="openModal(this.src)"
-              loading="lazy"></div>
-          <p class="pl">QS Panel</p>
-        </div>
-        <div class="pw" data-cat="ui">
-          <div class="pf"><img src="screenshots/qs%20panel%202.png" alt="QS Panel 2" onclick="openModal(this.src)"
-              loading="lazy"></div>
-          <p class="pl">QS Panel 2</p>
-        </div>
-        <div class="pw" data-cat="ui">
-          <div class="pf"><img src="screenshots/dynamic%20bar.png" alt="Dynamic Bar" onclick="openModal(this.src)"
-              loading="lazy"></div>
-          <p class="pl">Dynamic Bar</p>
-        </div>
-        <div class="pw" data-cat="ui">
-          <div class="pf"><img src="screenshots/quick%20switch.png" alt="Quick Switch" onclick="openModal(this.src)"
-              loading="lazy"></div>
-          <p class="pl">Quick Switch</p>
-        </div>
-        <div class="pw" data-cat="ui">
-          <div class="pf"><img src="screenshots/music.png" alt="Music" onclick="openModal(this.src)" loading="lazy">
+      </div>
+
+      <div class="carousel-container">
+        <div class="ss-carousel" id="ss-carousel">
+          <div class="pw" data-cat="home">
+            <div class="pf"><img src="screenshots/lock%20screen.png" alt="Lock Screen with Custom Widget" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Lock Screen</p>
           </div>
-          <p class="pl">Music Player</p>
+          <div class="pw" data-cat="home">
+            <div class="pf"><img src="screenshots/lock%20screen%202.jpg" alt="Minimal Lock Screen" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Minimal Lock</p>
+          </div>
+          <div class="pw" data-cat="home">
+            <div class="pf"><img src="screenshots/homescreen.png" alt="Homescreen with Monochromatic Icons" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Homescreen</p>
+          </div>
+          <div class="pw" data-cat="home">
+            <div class="pf"><img src="screenshots/Depth%20wallpaper.jpg" alt="Depth Wallpaper Effect" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Depth Wallpaper</p>
+          </div>
+          <div class="pw" data-cat="home">
+            <div class="pf"><img src="screenshots/appdrawer.png" alt="App Drawer Clean Layout" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">App Drawer</p>
+          </div>
+          <div class="pw" data-cat="ui">
+            <div class="pf"><img src="screenshots/qs%20panel.png" alt="Quick Settings Panel" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">QS Panel</p>
+          </div>
+          <div class="pw" data-cat="ui">
+            <div class="pf"><img src="screenshots/qs%20panel%202.png" alt="Expanded QS Panel" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Expanded QS</p>
+          </div>
+          <div class="pw" data-cat="ui">
+            <div class="pf"><img src="screenshots/dynamic%20bar.png" alt="Dynamic Bar Island" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Dynamic Bar</p>
+          </div>
+          <div class="pw" data-cat="ui">
+            <div class="pf"><img src="screenshots/quick%20switch.png" alt="Quick Switch Multitasking" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Quick Switch</p>
+          </div>
+          <div class="pw" data-cat="ui">
+            <div class="pf"><img src="screenshots/music.png" alt="Notch Ring Music Player" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Music Player</p>
+          </div>
+          <div class="pw" data-cat="settings">
+            <div class="pf"><img src="screenshots/about%20info.png" alt="About Phone System Specs" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">About Phone</p>
+          </div>
+          <div class="pw" data-cat="settings">
+            <div class="pf"><img src="screenshots/Custom%20clock%20style.jpg" alt="Clock Style Customizer" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Clock Styles</p>
+          </div>
+          <div class="pw" data-cat="settings">
+            <div class="pf"><img src="screenshots/color%20customization.jpg" alt="Accent Color Picker" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Monet Accents</p>
+          </div>
+          <div class="pw" data-cat="settings">
+            <div class="pf"><img src="screenshots/gradients%20customization.jpg" alt="Gradient Theme Styles" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Gradients</p>
+          </div>
+          <div class="pw" data-cat="settings">
+            <div class="pf"><img src="screenshots/font%20settings.jpg" alt="System Font Selector" onclick="openModal(this.src)" loading="lazy"></div>
+            <p class="pl">Font Switcher</p>
+          </div>
         </div>
-        <div class="pw" data-cat="settings">
-          <div class="pf"><img src="screenshots/about%20info.png" alt="About Info" onclick="openModal(this.src)"
-              loading="lazy"></div>
-          <p class="pl">About Info</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="premium-footer scroll-reveal">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="footer-logo-row">
+            <div class="nav-logo-icon">🌕</div>
+            <span class="footer-logo">LUNARIS AOSP</span>
+          </div>
+          <p class="footer-desc">
+            A meticulously crafted custom Android 16 experience for the Redmi K50i (xaga), combining LineageOS stability with deep customization and speed.
+          </p>
         </div>
-        <div class="pw" data-cat="settings">
-          <div class="pf"><img src="screenshots/Custom%20clock%20style.jpg" alt="Custom Clock Style"
-              onclick="openModal(this.src)" loading="lazy"></div>
-          <p class="pl">Custom Clock Style</p>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Overview</a>
+          <a href="downloads.html">Downloads</a>
+          <a href="changelog.html">Changelogs</a>
+          <a href="guide.html">Flashing Guide</a>
         </div>
-        <div class="pw" data-cat="settings">
-          <div class="pf"><img src="screenshots/color%20customization.jpg" alt="Color Customization"
-              onclick="openModal(this.src)" loading="lazy"></div>
-          <p class="pl">Color Customization</p>
+        <div class="footer-col">
+          <h4>Community & Support</h4>
+          <a href="https://github.com/itsrohan17" target="_blank" rel="noopener noreferrer">Maintainer GitHub (itsrohan17)</a>
+          <a href="https://github.com/Lunaris-AOSP" target="_blank" rel="noopener noreferrer">Source Code (Lunaris-AOSP)</a>
+          <a href="https://t.me/screenshotsxaga" target="_blank" rel="noopener noreferrer">Telegram Channel (Updates)</a>
+          <a href="https://t.me/XAGASupport" target="_blank" rel="noopener noreferrer">Telegram Group (Support)</a>
         </div>
-        <div class="pw" data-cat="settings">
-          <div class="pf"><img src="screenshots/gradients%20customization.jpg" alt="Gradients Customization"
-              onclick="openModal(this.src)" loading="lazy"></div>
-          <p class="pl">Gradients Customization</p>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="device-info">
+          <span><span class="info-label">Device</span> xaga (Redmi K50i)</span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Android</span> 16</span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Build</span> <span id="footer-build-tag">v3.13</span></span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Maintainer</span> dev Rohan</span>
         </div>
-        <div class="pw" data-cat="settings">
-          <div class="pf"><img src="screenshots/font%20settings.jpg" alt="Font Settings" onclick="openModal(this.src)"
-              loading="lazy"></div>
-          <p class="pl">Font Settings</p>
-        </div>
+        <p class="copyright">© 2026 Lunaris AOSP. Crafted with precision for Redmi K50i.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- LIGHTBOX MODAL (OUTSIDE PAGE-ROOT) -->
+  <div id="lightbox" class="lightbox" onclick="closeModal()" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Screenshot preview">
+    <button class="lightbox-close" onclick="closeModal()" aria-label="Close Preview">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="prevImage(event)" aria-label="Previous screenshot">&#10094;</button>
+    
+    <div class="lightbox-dialog" onclick="event.stopPropagation()">
+      <img class="lightbox-content" id="lightbox-img" alt="Screenshot Full View">
+      <div class="lightbox-meta-bar">
+        <span class="lightbox-caption" id="lightbox-caption">Screenshot</span>
+        <span class="lightbox-counter" id="lightbox-counter">1 / 15</span>
       </div>
     </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features scroll-reveal">
-    <div class="features-grid">
-      <div class="feat rev d6">
-        <div class="feat-inner">
-          <span class="feat-icon">✨</span>
-          <span class="feat-title">Ultra Smooth Experience</span>
-          <p class="feat-desc">Buttery 60–144fps performance tuned for the Redmi K50i</p>
-        </div>
-      </div>
-      <div class="feat rev" style="animation-delay:.74s">
-        <div class="feat-inner">
-          <span class="feat-icon">🎨</span>
-          <span class="feat-title">Deep Customization</span>
-          <p class="feat-desc">Personalize every corner — themes, fonts, icons &amp; more</p>
-        </div>
-      </div>
-      <div class="feat rev" style="animation-delay:.88s">
-        <div class="feat-inner">
-          <span class="feat-icon">⚡</span>
-          <span class="feat-title">Blazing Fast</span>
-          <p class="feat-desc">Optimized kernel &amp; scheduler for lightning-fast response</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LIGHTBOX MODAL -->
-  <div id="lightbox" class="lightbox" onclick="closeModal()">
-    <span class="lightbox-close" onclick="closeModal()">&times;</span>
-    <button class="lightbox-nav lightbox-prev" onclick="prevImage(event)">&#10094;</button>
-    <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
-    <button class="lightbox-nav lightbox-next" onclick="nextImage(event)">&#10095;</button>
+    
+    <button class="lightbox-nav lightbox-next" onclick="nextImage(event)" aria-label="Next screenshot">&#10095;</button>
   </div>
 
-  <!-- PREMIUM FOOTER -->
-  <footer class="premium-footer scroll-reveal">
-    <div class="footer-grid">
-      <div class="footer-col brand-col">
-        <span class="footer-logo">LUNARIS AOSP</span>
-        <p class="footer-desc">A premium, high-performance custom Android experience crafted meticulously for the Redmi
-          K50i.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <a href="downloads.html">Downloads</a>
-        <a href="changelog.html">Changelogs</a>
-        <a href="guide.html">Flashing Guide</a>
-      </div>
-      <div class="footer-col">
-        <h4>Community & Source</h4>
-        <a href="https://github.com/Lunaris-AOSP" target="_blank">Source Code (Lunaris)</a>
-        <a href="https://github.com/itsrohan17" target="_blank">Maintainer (itsrohan17)</a>
-        <a href="https://t.me/screenshotsxaga" target="_blank">Telegram Updates</a>
-        <a href="https://t.me/XAGASupport" target="_blank">Report a Bug / Support</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="device-info">
-        <span><span class="info-label">Device</span> xaga (Redmi K50i)</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Android</span> 16</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Last Build</span> Aug 2026</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Maintainer</span> dev Rohan</span>
-      </div>
-      <p class="copyright">© 2026 Lunaris AOSP. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- COMMUNITY POPUP -->
-  <div class="community-popup" id="community-popup">
-    <a href="https://t.me/screenshotsxaga" target="_blank" rel="noopener noreferrer" class="comm-item">
+  <!-- COMMUNITY POPUP (OUTSIDE PAGE-ROOT) -->
+  <div class="community-popup" id="community-popup" role="menu" aria-label="Community Channels">
+    <div class="comm-popup-label">💬 Join the Community</div>
+    <a href="https://t.me/screenshotsxaga" target="_blank" rel="noopener noreferrer" class="comm-item" role="menuitem">
       <div class="comm-icon">
         <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
         </svg>
       </div>
-      <div class="comm-text"><span class="comm-title">GG Builds</span><span class="comm-sub">Screenshots &amp;
-          updates</span></div>
+      <div class="comm-text">
+        <span class="comm-title">GG Builds / Updates</span>
+        <span class="comm-sub">Screenshots &amp; release announcements</span>
+      </div>
     </a>
     <div class="comm-divider"></div>
-    <a href="https://t.me/XAGASupport" target="_blank" rel="noopener noreferrer" class="comm-item">
+    <a href="https://t.me/XAGASupport" target="_blank" rel="noopener noreferrer" class="comm-item" role="menuitem">
       <div class="comm-icon comm-icon-support">
         <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       </div>
-      <div class="comm-text"><span class="comm-title">XAGA Support</span><span class="comm-sub">Help &amp;
-          troubleshooting</span></div>
+      <div class="comm-text">
+        <span class="comm-title">XAGA Support Group</span>
+        <span class="comm-sub">Help, troubleshooting &amp; discussions</span>
+      </div>
     </a>
   </div>
 
-  <script>
-    /* =============================================
-       LUNARIS AOSP — PREMIUM REFINED (INLINE JS)
-    ============================================= */
-    (function () {
-      const isMobile = window.LUNARIS_IS_MOBILE ?? matchMedia('(max-width:767px)').matches;
-
-      window.toggleCommunity = function (e) {
-        e.stopPropagation();
-        const popup = document.getElementById('community-popup');
-        const btn = document.getElementById('comm-btn');
-        if (!popup || !btn) return;
-        const rect = btn.getBoundingClientRect();
-        const W = 240;
-        let left = rect.left + rect.width / 2 - W / 2;
-        if (left < 8) left = 8; if (left + W > window.innerWidth - 8) left = window.innerWidth - W - 8;
-        popup.style.top = (rect.bottom + 8) + 'px'; popup.style.left = left + 'px'; popup.classList.toggle('open');
-      };
-
-      document.addEventListener('click', function (e) {
-        const btnComm = document.getElementById('comm-btn');
-        const popComm = document.getElementById('community-popup');
-        if (popComm && btnComm && !btnComm.contains(e.target) && !popComm.contains(e.target)) { popComm.classList.remove('open'); }
-      });
-
-      window.filterGallery = function (category) {
-        const target = window.event ? window.event.target : null;
-        if (target) {
-          const btns = document.querySelectorAll('.filter-btn');
-          btns.forEach(btn => btn.classList.remove('active'));
-          target.classList.add('active');
-        }
-        const items = document.querySelectorAll('.ss-carousel .pw');
-        items.forEach(item => {
-          if (category === 'all' || item.getAttribute('data-cat') === category) {
-            item.style.display = 'block'; setTimeout(() => item.style.opacity = '1', 50);
-          } else {
-            item.style.opacity = '0'; setTimeout(() => item.style.display = 'none', 300);
-          }
-        });
-      };
-
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      let currentImages = [];
-      let currentIdx = 0;
-
-      window.openModal = function (src) {
-        if (!lightbox) return;
-        const visibleCards = Array.from(document.querySelectorAll('.ss-carousel .pw')).filter(el => el.style.display !== 'none');
-        currentImages = visibleCards.map(el => el.querySelector('img').src);
-        currentIdx = currentImages.indexOf(src);
-        if (currentIdx === -1) currentIdx = 0;
-
-        lightboxImg.src = src;
-        lightbox.classList.add('show');
-        document.body.style.overflow = 'hidden';
-      };
-
-      window.closeModal = function () {
-        if (!lightbox) return;
-        lightbox.classList.remove('show');
-        document.body.style.overflow = 'auto';
-      };
-
-      window.prevImage = function (e) {
-        if (e) e.stopPropagation();
-        if (currentImages.length === 0) return;
-        currentIdx = (currentIdx - 1 + currentImages.length) % currentImages.length;
-        lightboxImg.src = currentImages[currentIdx];
-      };
-
-      window.nextImage = function (e) {
-        if (e) e.stopPropagation();
-        if (currentImages.length === 0) return;
-        currentIdx = (currentIdx + 1) % currentImages.length;
-        lightboxImg.src = currentImages[currentIdx];
-      };
-
-      let touchstartX = 0;
-      let touchendX = 0;
-
-      if (lightbox) {
-        lightbox.addEventListener('touchstart', e => {
-          touchstartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        lightbox.addEventListener('touchend', e => {
-          touchendX = e.changedTouches[0].screenX;
-          if (touchendX < touchstartX - 40) nextImage();
-          if (touchendX > touchstartX + 40) prevImage();
-        }, { passive: true });
-      }
-
-      document.addEventListener('keydown', function (event) {
-        if (!lightbox || !lightbox.classList.contains('show')) return;
-        if (event.key === "Escape") closeModal();
-        if (event.key === "ArrowLeft") prevImage();
-        if (event.key === "ArrowRight") nextImage();
-      });
-
-      const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
-      lunarisWhenIdle(() => {
-        fetch('https://api.github.com/repos/itsrohan17/android_device_xiaomi_xaga/releases/latest')
-          .then(r => r.json())
-          .then(d => {
-            setVal('gh-ver', d.tag_name || 'v3.12');
-            if (d.published_at) { const dt = new Date(d.published_at); setVal('gh-date', dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })); } else { setVal('gh-date', 'Aug 2026'); }
-            if (d.assets) { const total = d.assets.reduce((s, a) => s + a.download_count, 0); setVal('gh-dl', total > 0 ? total.toLocaleString() : '—'); } else { setVal('gh-dl', '—'); }
-          })
-          .catch(() => { setVal('gh-ver', 'v3.12'); setVal('gh-date', 'Aug 2026'); setVal('gh-dl', '—'); });
-      });
-    })();
-  </script>
 </body>
 
 </html>

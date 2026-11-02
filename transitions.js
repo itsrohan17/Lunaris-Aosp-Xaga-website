@@ -54,10 +54,27 @@
     if (document.getElementById('page-root')) return;
     var wrap = document.createElement('div');
     wrap.id = 'page-root';
-    while (document.body.firstChild) {
-      wrap.appendChild(document.body.firstChild);
+
+    // Do NOT move fixed canvas, glow, lightbox, or popups inside page-root
+    var excludedSelectors = '#pc, .ambient-glow, .lightbox, .community-popup, #dl38-popup, .page-curtain, .toast-container';
+    var toMove = [];
+    var child = document.body.firstElementChild;
+    while (child) {
+      var next = child.nextElementSibling;
+      if (!child.matches(excludedSelectors)) {
+        toMove.push(child);
+      }
+      child = next;
     }
-    document.body.appendChild(wrap);
+
+    if (toMove.length > 0) {
+      document.body.insertBefore(wrap, toMove[0]);
+      toMove.forEach(function (node) {
+        wrap.appendChild(node);
+      });
+    } else {
+      document.body.appendChild(wrap);
+    }
     ensureCurtain();
   }
 
@@ -102,6 +119,11 @@
     window.setTimeout(function () {
       window.location.href = url;
     }, EXIT_MS);
+    // Safety recovery if page navigation is aborted
+    window.setTimeout(function () {
+      leaving = false;
+      document.documentElement.classList.remove('page-leave');
+    }, 1600);
   }
 
   function markPageLinks() {

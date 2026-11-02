@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#03050a">
-  <title>Downloads · Lunaris AOSP</title>
+  <meta name="theme-color" content="#03050d">
+  <title>Downloads · Lunaris AOSP | Redmi K50i (xaga)</title>
 
-  <meta name="description" content="Download official builds for Lunaris AOSP on Redmi K50i (xaga). Android 16 based.">
-  <meta name="keywords" content="Lunaris AOSP downloads, Redmi K50i ROM download, xaga Fastboot ROM">
+  <meta name="description" content="Download official Fastboot ROM builds for Lunaris AOSP on Redmi K50i (xaga). Based on Android 16 and LineageOS.">
+  <meta name="keywords" content="Lunaris AOSP downloads, Redmi K50i ROM download, xaga Fastboot ROM, Android 16 download">
   <meta name="author" content="dev Rohan (itsrohan17)">
   <link rel="canonical" href="https://itsrohan17.github.io/Lunaris-Aosp-Xaga-website/downloads.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://itsrohan17.github.io/Lunaris-Aosp-Xaga-website/downloads.html">
-  <meta property="og:title" content="Downloads · Lunaris AOSP">
-  <meta property="og:description" content="Download official Fastboot ROMs for Redmi K50i (xaga).">
+  <meta property="og:title" content="Downloads · Lunaris AOSP | Redmi K50i">
+  <meta property="og:description" content="Download official Fastboot ROMs for Redmi K50i (xaga). High performance Android 16.">
   <meta property="og:site_name" content="Lunaris AOSP">
+  <meta property="og:image" content="screenshots/homescreen.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Downloads · Lunaris AOSP">
-  <meta name="twitter:description" content="Download official Fastboot ROMs for Redmi K50i (xaga).">
+  <meta name="twitter:title" content="Downloads · Lunaris AOSP | Redmi K50i">
+  <meta name="twitter:description" content="Download official Fastboot ROMs for Redmi K50i (xaga). High performance Android 16.">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌕</text></svg>">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="perf.css">
@@ -38,401 +40,507 @@
   <script src="stars.js" defer></script>
   <script src="transitions.js"></script>
   <script src="script.js" defer></script>
-
-  <style>
-    :root { --bg: #03050a; --bg-gradient: radial-gradient(circle at top, #0d1126 0%, #03050a 70%); --border: rgba(255, 255, 255, 0.06); --violet: #a78bfa; --accent: #8b5cf6; --sky: #38bdf8; --text: #f8fafc; --muted: #94a3b8; --glass: rgba(255, 255, 255, 0.03); --glass-border: rgba(255, 255, 255, 0.08); }
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Outfit', sans-serif; background: var(--bg); background-image: var(--bg-gradient); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-    .ambient-glow { position: fixed; top: -20vh; left: 50%; transform: translateX(-50%); width: 120vw; height: 100vh; background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 60%); z-index: 0; pointer-events: none; animation: nebulaBreathe 12s ease-in-out infinite alternate; will-change: transform; }
-    @media (max-width: 768px) { .ambient-glow { animation: none; opacity: 0.8; } }
-    @keyframes nebulaBreathe { 0% { transform: translateX(-50%) scale(1); opacity: 0.8; } 100% { transform: translateX(-48%) scale(1.05); opacity: 1; } }
-    #pc { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.7; }
-    .rev { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.3s; }
-    header { position: relative; z-index: 10; padding: 24px 16px 0; text-align: center; }
-    .nav { display: inline-flex; justify-content: space-between; align-items: center; margin: 0 auto 48px; padding: 10px 20px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 100px; backdrop-filter: blur(16px); box-shadow: 0 4px 24px rgba(0,0,0,0.2); gap: 16px; animation: navGlow 6s ease-in-out infinite; }
-    @keyframes navGlow { 0%, 100% { border-color: rgba(255,255,255,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.2); } 50% { border-color: rgba(139,92,246,0.2); box-shadow: 0 4px 30px rgba(139,92,246,0.1); } }
-    .nav-logo { font-weight: 800; font-size: 0.9rem; letter-spacing: 0.1em; color: var(--text); }
-    .nav-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); }
-    .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; }
-    .hero-content { margin-top: 40px; }
-    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--violet); text-transform: uppercase; margin-bottom: 16px; }
-    h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; background: linear-gradient(135deg, #fff 0%, #c4b5fd 25%, #818cf8 50%, #c4b5fd 75%, #fff 100%); background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 24px; animation: gradientShift 8s ease infinite; }
-    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    .btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px; position: relative; z-index: 20; }
-    .btn { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; font-weight: 500; font-size: 0.9rem; border-radius: 12px; text-decoration: none; color: #fff; border: 1px solid transparent; cursor: pointer; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-    .btn:hover { transform: translateY(-3px); }
-    .btn:active { transform: translateY(1px); }
-    .btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent); transform: skewX(-20deg); transition: 0.6s ease; }
-    .btn:hover::after { left: 150%; }
-    .bp { background: #8b5cf6; border-color: #a78bfa; box-shadow: 0 4px 14px rgba(139,92,246,0.2); }
-    .bp:hover { box-shadow: 0 8px 24px rgba(139,92,246,0.6); border-color: #ddd6fe; }
-    .bg { background: var(--glass); border-color: var(--glass-border); backdrop-filter: blur(10px); }
-    .bg:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-    .dl-section { position: relative; z-index: 10; padding: 0 16px 64px; }
-    .dl-grid-3 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 960px; margin: 0 auto; }
-    @media (max-width: 720px) { .dl-grid-3 { grid-template-columns: 1fr; } }
-    .dl-card { position: relative; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px; padding: 28px 22px 22px; text-align: center; backdrop-filter: blur(12px); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), border-color 0.4s, box-shadow 0.4s; }
-    .dl-card:hover { transform: translateY(-4px); border-color: rgba(139,92,246,0.3); box-shadow: 0 10px 30px rgba(139,92,246,0.1); }
-    .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
-    .scroll-reveal.active { opacity: 1; transform: translateY(0); }
-    .dl-badge-wrap { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); }
-    .dl-ver-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; padding: 4px 14px; border-radius: 20px; white-space: nowrap; }
-    .dl-ver-badge.new { background: var(--violet); color: #fff; }
-    .dl-ver-badge.stable { background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: var(--muted); }
-    .dl-icon { font-size: 2.4rem; margin: 8px 0 12px; display: block; }
-    .dl-ver { font-weight: 700; font-size: 1.2rem; color: var(--text); margin-bottom: 4px; }
-    .dl-device { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); margin-bottom: 16px; }
-    .dl-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; padding: 0; }
-    .dl-tags li { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--violet); background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); padding: 4px 10px; border-radius: 20px; transition: transform 0.25s, background 0.25s, border-color 0.25s; }
-    .dl-card:hover .dl-tags li { transform: translateY(-2px); }
-    .dl-card:hover .dl-tags li:nth-child(1) { transition-delay: 0s; }
-    .dl-card:hover .dl-tags li:nth-child(2) { transition-delay: 0.04s; }
-    .dl-card:hover .dl-tags li:nth-child(3) { transition-delay: 0.08s; }
-    .dl-changelog { list-style: none; padding: 0; margin-bottom: 16px; text-align: left; }
-    .dl-changelog li { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #a7f3d0; padding: 3px 0 3px 10px; position: relative; line-height: 1.5; border-left: 2px solid rgba(16,185,129,0.15); margin-bottom: 3px; }
-    .dl-changelog li::before { content: '>'; position: absolute; left: -1px; color: rgba(16,185,129,0.6); font-weight: 700; font-size: 0.65rem; }
-    .dl-btn-group { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-    .dl-btn { width: 100%; justify-content: center; font-size: 0.85rem; padding: 12px 16px; }
-    .dl-arrow { display: inline-block; animation: arrowBounce 1.2s ease-in-out infinite; margin-left: 4px; }
-    @keyframes arrowBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
-    .premium-footer { position: relative; z-index: 10; background: rgba(5, 8, 20, 0.6); border-top: 1px solid var(--glass-border); padding: 60px 20px 30px; margin-top: 40px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto 40px; }
-    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; text-align: center; } }
-    .footer-col h4 { font-weight: 600; font-size: 0.95rem; color: var(--text); margin-bottom: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
-    .footer-col a { display: block; color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-bottom: 12px; transition: color 0.2s, padding-left 0.2s; }
-    .footer-col a:hover { color: var(--violet); padding-left: 5px; }
-    .brand-col .footer-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--text); display: block; margin-bottom: 12px; }
-    .brand-col .footer-desc { color: var(--muted); font-size: 0.85rem; line-height: 1.6; max-width: 300px; }
-    @media (max-width: 768px) { .brand-col .footer-desc { margin: 0 auto; } }
-    .footer-bottom { max-width: 1000px; margin: 0 auto; border-top: 1px solid var(--glass-border); padding-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .device-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); background: var(--glass); padding: 10px 24px; border-radius: 30px; border: 1px solid var(--glass-border); }
-    .info-label { color: var(--violet); text-transform: uppercase; letter-spacing: 0.1em; margin-right: 4px; }
-    .dot-sep { color: rgba(255,255,255,0.2); }
-    .copyright { font-size: 0.75rem; color: var(--muted); }
-    .community-popup { position: fixed; width: 240px; background: rgba(10,12,28,0.95); border: 1px solid rgba(139,92,246,0.3); border-radius: 16px; padding: 8px; z-index: 999999; box-shadow: 0 20px 60px rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transform: scale(0.96); transition: opacity 0.2s, transform 0.2s; backdrop-filter: blur(10px); }
-    .community-popup.open { opacity: 1; pointer-events: all; transform: scale(1); }
-    .comm-item { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; cursor: pointer; transition: background 0.2s; }
-    .comm-item:hover { background: rgba(139,92,246,0.1); }
-    .comm-icon { width: 36px; height: 36px; border-radius: 10px; background: #2563eb; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #fff; }
-    .comm-icon.comm-icon-support { background: #8b5cf6; }
-    .comm-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
-    .comm-title { font-weight: 600; font-size: 0.85rem; color: var(--text); }
-    .comm-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--muted); }
-    .comm-divider { height: 1px; background: var(--glass-border); margin: 4px 8px; }
-    .comm-popup-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--muted); text-transform: uppercase; padding: 4px 12px 6px; }
-    .dl-checksum { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.15); border-radius: 8px; margin: 2px 0; }
-    .dl-checksum-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #34d399; text-transform: uppercase; flex-shrink: 0; }
-    .dl-checksum-val { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; color: var(--muted); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; }
-    .dl-checksum-copy { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--violet); background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.3); border-radius: 5px; padding: 3px 8px; cursor: pointer; transition: background 0.2s; }
-    .dl-checksum-copy:hover { background: rgba(139,92,246,0.25); }
-    ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.5); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.8); }
-    /* === ANIMATIONS === */
-    .dl-card { opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1), border-color 0.3s; }
-    .dl-card.visible { opacity: 1; transform: translateY(0); }
-    .dl-card:nth-child(1) { transition-delay: 0s; }
-    .dl-card:nth-child(2) { transition-delay: 0.12s; }
-    .dl-card:nth-child(3) { transition-delay: 0.24s; }
-    .dl-card:nth-child(4) { transition-delay: 0.36s; }
-    .dl-card:nth-child(5) { transition-delay: 0.48s; }
-    .dl-card:nth-child(6) { transition-delay: 0.6s; }
-    .dl-card.visible:hover { transform: translateY(-4px); }
-
-    @keyframes latestGlow {
-      0%, 100% { border-color: rgba(139,92,246,0.15); box-shadow: 0 0 20px rgba(139,92,246,0.05); }
-      50% { border-color: rgba(139,92,246,0.4); box-shadow: 0 0 30px rgba(139,92,246,0.15), 0 10px 40px rgba(139,92,246,0.1); }
-    }
-    .dl-latest.visible { animation: latestGlow 4s ease-in-out infinite; }
-
-    @keyframes badgeFloat {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-3px); }
-    }
-    .dl-badge-wrap { animation: badgeFloat 3s ease-in-out infinite; }
-
-    .dl-changelog li { opacity: 0; transform: translateX(-10px); transition: opacity 0.3s, transform 0.3s; }
-    .dl-card.visible .dl-changelog li { opacity: 1; transform: translateX(0); }
-    .dl-card.visible .dl-changelog li:nth-child(1) { transition-delay: 0.1s; }
-    .dl-card.visible .dl-changelog li:nth-child(2) { transition-delay: 0.15s; }
-    .dl-card.visible .dl-changelog li:nth-child(3) { transition-delay: 0.2s; }
-    .dl-card.visible .dl-changelog li:nth-child(4) { transition-delay: 0.25s; }
-    .dl-card.visible .dl-changelog li:nth-child(5) { transition-delay: 0.3s; }
-    .dl-card.visible .dl-changelog li:nth-child(6) { transition-delay: 0.35s; }
-    .dl-card.visible .dl-changelog li:nth-child(7) { transition-delay: 0.4s; }
-    .dl-card.visible .dl-changelog li:nth-child(8) { transition-delay: 0.45s; }
-    .dl-card.visible .dl-changelog li:nth-child(9) { transition-delay: 0.5s; }
-    .dl-card.visible .dl-changelog li:nth-child(10) { transition-delay: 0.55s; }
-    .dl-card.visible .dl-changelog li:nth-child(11) { transition-delay: 0.6s; }
-    .dl-card.visible .dl-changelog li:nth-child(12) { transition-delay: 0.65s; }
-
-    @keyframes btnPulse {
-      0%, 100% { box-shadow: 0 4px 14px rgba(139,92,246,0.2); }
-      50% { box-shadow: 0 4px 20px rgba(139,92,246,0.5), 0 0 40px rgba(139,92,246,0.1); }
-    }
-    .dl-latest .btn.bp { animation: btnPulse 3s ease-in-out infinite; }
-
-    @keyframes dotPulse {
-      0%, 100% { box-shadow: 0 0 8px #10b981; }
-      50% { box-shadow: 0 0 16px #10b981, 0 0 24px rgba(16,185,129,0.3); }
-    }
-    .nav-dot { animation: dotPulse 2s ease-in-out infinite; }
-
-    @keyframes iconPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-    }
-    .dl-latest .dl-icon { animation: iconPulse 2.5s ease-in-out infinite; display: inline-block; }
-
-    .footer-col a { position: relative; }
-    .footer-col a::before { content: '\2192'; position: absolute; left: -15px; opacity: 0; transform: translateX(-5px); transition: opacity 0.2s, transform 0.2s; color: var(--violet); }
-    .footer-col a:hover::before { opacity: 1; transform: translateX(0); }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-    }
-  </style>
-
 </head>
+
 <body>
 
-  <canvas id="pc"></canvas>
-  <div class="ambient-glow" id="nebula"></div>
+  <canvas id="pc" aria-hidden="true"></canvas>
+  <div class="ambient-glow" id="nebula" aria-hidden="true"></div>
 
+  <!-- NAVIGATION HEADER -->
   <header>
-    <nav class="nav scroll-reveal">
-      <a href="index.html" style="text-decoration:none;"><span class="nav-logo">LUNARIS</span></a>
-      <span class="nav-badge">BUILD 2026 · XAGA</span>
-      <div class="nav-dot"></div>
-    </nav>
-    <div class="hero-content">
-      <p class="eyebrow rev d1">Get the latest build</p>
-      <div class="title-wrap rev d2">
-        <h1>DOWNLOADS</h1>
-      </div>
-      <div class="btns rev d3">
-        <a href="index.html" class="btn bg">
-          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-          Back to Home
+    <nav class="nav-container scroll-reveal" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo-icon">🌕</div>
+        <span class="nav-logo-text">LUNARIS</span>
+        <span class="nav-badge-pill">XAGA · 2026</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Overview</a></li>
+        <li><a href="downloads.html" class="nav-link active">Downloads</a></li>
+        <li><a href="changelog.html" class="nav-link">Changelogs</a></li>
+        <li><a href="guide.html" class="nav-link">Flashing Guide</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="index.html" class="btn bg" style="padding:8px 16px;font-size:0.82rem;border-radius:999px;">
+          <span>← Back to Home</span>
         </a>
+        <div class="nav-dot" title="Builds Active"></div>
+        <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu" onclick="document.getElementById('mobile-drawer').classList.toggle('open')">
+          ☰
+        </button>
       </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu-drawer" id="mobile-drawer">
+      <a href="index.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Overview</a>
+      <a href="downloads.html" class="nav-link active" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Downloads</a>
+      <a href="changelog.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Changelogs</a>
+      <a href="guide.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Flashing Guide</a>
+      <a href="https://t.me/screenshotsxaga" target="_blank" rel="noopener noreferrer" class="nav-link" style="color:var(--sky);">Telegram Updates ↗</a>
+      <a href="https://github.com/itsrohan17" target="_blank" rel="noopener noreferrer" class="nav-link" style="color:var(--violet);">Maintainer GitHub ↗</a>
     </div>
   </header>
 
-  <section class="dl-section scroll-reveal" id="download-section">
-    <div class="dl-grid-3">
-
-      <!-- v3.12 — LATEST -->
-      <div class="dl-card dl-latest">
-        <div class="dl-badge-wrap"><span class="dl-ver-badge new">✦ Latest</span></div>
-        <div class="dl-icon">🌟</div>
-        <div class="dl-ver">Lunaris v3.12</div>
-        <div class="dl-device">Redmi K50i · xaga</div>
-        <ul class="dl-tags"><li>Android 16</li><li>LineageOS</li><li>Stable</li></ul>
-        <ul class="dl-changelog">
-          <li>New Fenrir LK</li>
-          <li>Improved RAM management</li>
-          <li>Improved QS expansion and tile animations</li>
-          <li>Improved brightness slider animation and haptics</li>
-          <li>Improved Dynamic Bar animations</li>
-          <li>Improved launcher blur animations</li>
-          <li>Improved custom clock layouts</li>
-          <li>Improved lyrics sync timing</li>
-          <li>Optimized shade blur</li>
-        </ul>
-        <div class="dl-btn-group">
-          <a href="https://drive.google.com/file/d/13SLrzOPtOUYVpZywVkuMo_KiGt4qIK9p/view?usp=sharing" target="_blank" class="btn bp dl-btn">Fastboot <span class="dl-arrow">↓</span></a>
-        </div>
+  <main id="page-root">
+    <div class="hero-wrapper" style="margin-bottom:28px;">
+      <p class="hero-pill-badge rev d1">
+        <span>⚡ OFFICIAL FASTBOOT PACKAGES</span>
+      </p>
+      <div class="rev d2">
+        <h1 class="hero-title">DOWNLOADS</h1>
       </div>
-
-      <!-- v3.11 -->
-      <div class="dl-card">
-        <div class="dl-badge-wrap"><span class="dl-ver-badge stable">Stable</span></div>
-        <div class="dl-icon">🌟</div>
-        <div class="dl-ver">Lunaris v3.11</div>
-        <div class="dl-device">Redmi K50i · xaga</div>
-        <ul class="dl-tags"><li>Android 16</li><li>LineageOS</li><li>Stable</li></ul>
-        <ul class="dl-changelog">
-          <li>Added Dolby Atmos</li>
-          <li>Fix WiFi & signal icons sizing</li>
-          <li>Improve custom recents animations</li>
-          <li>Fix QS media position reset issue (QQS and QS)</li>
-          <li>Fix battery percentage color issue when statusbar tint on</li>
-          <li>New 15 clock styles with weather support</li>
-          <li>Match some clock weather text with clock date</li>
-          <li>Advanced Monet customisation</li>
-          <li>Fix custom clock weather text not following clock color</li>
-          <li>Add album art color override for lockscreen clock</li>
-          <li>Improve gallery area — all screenshots look good</li>
-        </ul>
-        <div class="dl-btn-group">
-          <a href="https://drive.google.com/file/d/1seFrVjwxDb40dJ8RsDwzl2nC1F6i5Upm/view?usp=sharing" target="_blank" class="btn bp dl-btn">Fastboot</a>
-        </div>
-      </div>
-
-      <!-- v3.10 Hotfix 1.2 -->
-      <div class="dl-card">
-        <div class="dl-badge-wrap"><span class="dl-ver-badge stable">Hotfix</span></div>
-        <div class="dl-icon">⚡</div>
-        <div class="dl-ver">Lunaris 3.10 Hotfix 1.2</div>
-        <div class="dl-device">Redmi K50i · xaga</div>
-        <ul class="dl-tags"><li>Android 16</li><li>LineageOS</li><li>Hotfix</li></ul>
-        <ul class="dl-changelog">
-          <li>Add skydrove color customisation for clock style</li>
-          <li>Add option to browse all clocks</li>
-          <li>Add Statusbar brightness</li>
-          <li>Update some clock size and add new clocks</li>
-          <li>Add option in idle manager to trigger only when sleep mode on</li>
-          <li>Enable power button gemini animation</li>
-          <li>L3 popup unlock animation</li>
-          <li>Fix performance issues with OneUI app drawer style</li>
-          <li>Add initial split qs option</li>
-          <li>Fix app lock notification issue</li>
-        </ul>
-        <div class="dl-btn-group">
-          <a href="https://drive.google.com/file/d/1TbjVX_ye-TkiYtQxZ4rJklOl6Gd5_VT9/view?usp=sharing" target="_blank" class="btn bp dl-btn">Fastboot <span class="dl-arrow">↓</span></a>
-        </div>
-      </div>
-
-      <!-- v3.10 Hotfix -->
-      <div class="dl-card">
-        <div class="dl-badge-wrap"><span class="dl-ver-badge stable">Stable</span></div>
-        <div class="dl-icon">⚡</div>
-        <div class="dl-ver">Lunaris v3.10 Hotfix</div>
-        <div class="dl-device">Redmi K50i · xaga</div>
-        <ul class="dl-tags"><li>Android 16</li><li>LineageOS</li><li>Hotfix</li></ul>
-        <ul class="dl-changelog">
-          <li>Fixed previous blur issues</li>
-          <li>Optimized Dynamic Bar responsiveness</li>
-          <li>System Sandbox performance boost</li>
-          <li>Improved charging info accuracy</li>
-          <li>Smoother UI wallpaper transitions</li>
-        </ul>
-        <div class="dl-btn-group">
-          <a href="https://drive.google.com/file/d/1fgwHybkwSjbaBBGD9rNshaLlSyxAv9VK/view?usp=sharing" target="_blank" class="btn bp dl-btn">Fastboot <span class="dl-arrow">↓</span></a>
-        </div>
-      </div>
-
-      <!-- v3.10 -->
-      <div class="dl-card">
-        <div class="dl-badge-wrap"><span class="dl-ver-badge stable">Stable</span></div>
-        <div class="dl-icon">🌟</div>
-        <div class="dl-ver">Lunaris v3.10</div>
-        <div class="dl-device">Redmi K50i · xaga</div>
-        <ul class="dl-tags"><li>Android 16</li><li>LineageOS</li><li>Stable</li></ul>
-        <ul class="dl-changelog">
-          <li>Working torch intensity control</li>
-          <li>QS panel media & slider widget</li>
-          <li>Neumatic & 13 random clock styles</li>
-          <li>Lockscreen CPU info overlay</li>
-        </ul>
-        <div class="dl-btn-group">
-          <a href="https://drive.google.com/file/d/1to22VAN6Z8TKXUaTgHv04Tz7E4VknxQy/view?usp=sharing" target="_blank" class="btn bp dl-btn">Fastboot</a>
-        </div>
-      </div>
-
-      <!-- v3.9 -->
-      <div class="dl-card">
-        <div class="dl-badge-wrap"><span class="dl-ver-badge stable">Stable</span></div>
-        <div class="dl-icon">🔥</div>
-        <div class="dl-ver">Lunaris v3.9</div>
-        <div class="dl-device">Redmi K50i · xaga</div>
-        <ul class="dl-tags"><li>Android 16</li><li>LineageOS</li><li>Stable</li></ul>
-        <div class="dl-btn-group">
-          <a href="https://drive.google.com/file/d/1EjHQTIiWe0vtI8l74qbs0nRO5-8o7Qqz/view?usp=sharing" target="_blank" class="btn bg dl-btn">Fastboot</a>
-        </div>
-      </div>
-
-      <!-- v3.8 -->
-      <div class="dl-card">
-        <div class="dl-badge-wrap"><span class="dl-ver-badge stable">Stable</span></div>
-        <div class="dl-icon">🚀</div>
-        <div class="dl-ver">Lunaris v3.8</div>
-        <div class="dl-device">Redmi K50i · xaga</div>
-        <ul class="dl-tags"><li>Android 16</li><li>LineageOS</li><li>Stable</li></ul>
-        <div class="dl-btn-group">
-          <button class="btn bg dl-btn" id="dl38-btn" onclick="toggleDl38(event)">Download Mirror</button>
-        </div>
-      </div>
-
+      <p class="hero-subtitle rev d3">
+        Direct official Fastboot ROM packages for the Redmi K50i / Poco X4 GT (xaga). Verified SHA-256 checksums for safe flashing.
+      </p>
     </div>
-  </section>
 
-  <footer class="premium-footer scroll-reveal">
-    <div class="footer-grid">
-      <div class="footer-col brand-col">
-        <span class="footer-logo">LUNARIS AOSP</span>
-        <p class="footer-desc">A premium, high-performance custom Android experience crafted meticulously for the Redmi K50i.</p>
+    <!-- FILTER & SEARCH BAR -->
+    <section class="scroll-reveal" style="max-width:var(--container-max);margin:0 auto 36px;padding:0 20px;">
+      <div class="dl-search-bar">
+        <span class="dl-search-icon">🔍</span>
+        <input type="text" id="dl-search" class="dl-search-input" placeholder="Search versions or features (e.g. Android 17, v3.13, Dolby, Fenrir)..." oninput="filterDownloads()" aria-label="Search downloads">
       </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <a href="index.html">Home</a>
-        <a href="changelog.html">Changelogs</a>
-        <a href="guide.html">Flashing Guide</a>
-      </div>
-      <div class="footer-col">
-        <h4>Community & Source</h4>
-        <a href="https://github.com/Lunaris-AOSP" target="_blank">Source Code (Lunaris)</a>
-        <a href="https://github.com/itsrohan17" target="_blank">Maintainer (itsrohan17)</a>
-        <a href="https://t.me/screenshotsxaga" target="_blank">Telegram Updates</a>
-        <a href="https://t.me/XAGASupport" target="_blank">Report a Bug / Support</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="device-info">
-        <span><span class="info-label">Device</span> xaga (Redmi K50i)</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Android</span> 16</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Last Build</span> Aug 2026</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Maintainer</span> dev Rohan</span>
-      </div>
-      <p class="copyright">© 2026 Lunaris AOSP. All rights reserved.</p>
-    </div>
-  </footer>
 
-  <div class="community-popup" id="dl38-popup">
-    <div class="comm-popup-label">⬇ Choose mirror</div>
-    <a href="https://drive.usercontent.google.com/download?id=1_caPSR7IFrYbSn84t2uakOdltH_6XNYL&export=download&authuser=0" target="_blank" class="comm-item">
+      <div class="ss-filters" style="justify-content:center;margin-bottom:24px;">
+        <button class="filter-btn active" onclick="filterBuildType('all', this)">All Builds</button>
+        <button class="filter-btn" onclick="filterBuildType('latest', this)">Latest (v3.13)</button>
+        <button class="filter-btn" onclick="filterBuildType('upcoming', this)">Upcoming (Android 17)</button>
+        <button class="filter-btn" onclick="filterBuildType('stable', this)">Stable Builds</button>
+        <button class="filter-btn" onclick="filterBuildType('hotfix', this)">Hotfixes</button>
+      </div>
+    </section>
+
+    <!-- DOWNLOADS GRID -->
+    <section class="scroll-reveal" style="max-width:var(--container-max);margin:0 auto;padding:0 20px 60px;">
+      <div class="dl-grid-3" id="downloads-grid">
+
+        <!-- LUNARIS ANDROID 17 — COMING SOON -->
+        <div class="dl-card dl-upcoming" data-type="upcoming" data-keywords="android 17 lunaris a17 coming soon next gen preview xaga future">
+          <div class="dl-card-header">
+            <div class="dl-icon-badge" style="background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.35);">🔮</div>
+            <span class="dl-ver-badge upcoming">✦ Coming Soon</span>
+          </div>
+          <div class="dl-ver">Lunaris Android 17</div>
+          <div class="dl-device">Redmi K50i (xaga) · Android 17 · Work in Progress</div>
+          <ul class="dl-tags">
+            <li style="color:#38bdf8;background:rgba(56,189,248,0.1);border-color:rgba(56,189,248,0.25);">Android 17</li>
+            <li style="color:#38bdf8;background:rgba(56,189,248,0.1);border-color:rgba(56,189,248,0.25);">Next-Gen Base</li>
+            <li style="color:#38bdf8;background:rgba(56,189,248,0.1);border-color:rgba(56,189,248,0.25);">In Development</li>
+            <li style="color:#38bdf8;background:rgba(56,189,248,0.1);border-color:rgba(56,189,248,0.25);">Fastboot</li>
+          </ul>
+          <div class="dl-btn-group">
+            <div class="btn-coming-soon" aria-disabled="true">
+              <span class="pulse-cyan"></span>
+              <span>Coming Soon</span>
+            </div>
+            <div class="dl-edition-guide" style="background:rgba(56,189,248,0.05);border-color:rgba(56,189,248,0.2);">
+              <div class="dl-edition-item">
+                <span class="edition-badge" style="color:#38bdf8;">⏳ Active Internal Development</span>
+                <span class="edition-desc">Builds will be made available here once initial boot &amp; QA testing completes for xaga.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- v3.13 — LATEST -->
+        <div class="dl-card dl-latest" data-type="latest" data-keywords="v3.13 latest november dolby normal vanilla modular qs compose settings lunaris bar hyperos clocks system engine ios stacked notification ripple moto dialer lock gallery custom clock maker blur edge light android 17 monet smartspace themestore duck fastboot">
+          <div class="dl-card-header">
+            <div class="dl-icon-badge">💎</div>
+            <span class="dl-ver-badge new">✦ Latest Release</span>
+          </div>
+          <div class="dl-ver">Lunaris v3.13</div>
+          <div class="dl-device">Redmi K50i (xaga) · Android 16 · Nov 2026</div>
+          <ul class="dl-tags">
+            <li>Android 16</li>
+            <li>Dual Editions</li>
+            <li>A17 Backports</li>
+            <li>Modular QS</li>
+            <li>Fastboot</li>
+          </ul>
+          <ul class="dl-changelog">
+            <li>New Modular QS architecture &amp; Compose settings UI</li>
+            <li>Lunaris Bar dynamic island &amp; new System Engine</li>
+            <li>Tons of Android 17 backports &amp; front selfie feature</li>
+            <li>Custom Clock Maker, Lock Gallery, HyperOS &amp; Graffiti clocks</li>
+            <li>Clock 3D rotation, tilt-shift depth &amp; clock blur shaders</li>
+            <li>iOS stacked notifications &amp; Motorola glance style</li>
+            <li>Water ripple unlock animation &amp; OneUI edge light</li>
+            <li>Lunaris Monet color engine &amp; redesigned Theme Store</li>
+            <li>New Dialer UI, modern installer &amp; Duck integrity pass</li>
+          </ul>
+          <div class="dl-btn-group">
+            <a href="https://drive.google.com/file/d/1tJzmghFNic3jYILb0O81MYDcmByNEV8l/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn bp" style="justify-content:center;font-size:0.92rem;">
+              <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+              </svg>
+              <span>Download (With Dolby)</span>
+            </a>
+            <a href="https://drive.google.com/file/d/1iF93x6z52WdGJ9EqKQEm_gPlXsVqpQcZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn bs" style="justify-content:center;font-size:0.92rem;">
+              <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Download Normal Version</span>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1E7qquMc-BsSf50VCB7XWBFlTIVRnijk4?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn bg" style="justify-content:center;font-size:0.92rem;">
+              <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <span>Download Recovery (boot &amp; vendor_boot)</span>
+            </a>
+            <div class="dl-edition-guide">
+              <div class="dl-edition-item">
+                <span class="edition-badge dolby">🎵 Dolby Edition</span>
+                <span class="edition-desc">Includes system Dolby Atmos processing for tuned soundstage &amp; spatial audio.</span>
+              </div>
+              <div class="dl-edition-item">
+                <span class="edition-badge vanilla">⚡ Normal Version</span>
+                <span class="edition-desc">Clean standard AOSP audio — flash this if you do not want Dolby audio components.</span>
+              </div>
+              <div class="dl-edition-item">
+                <span class="edition-badge" style="background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.3);color:#38bdf8;">🛡️ Recovery Files</span>
+                <span class="edition-desc">Includes boot.img &amp; vendor_boot.img for flashing via Custom Recovery / ADB Sideload.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- v3.12 -->
+        <div class="dl-card" data-type="stable" data-keywords="v3.12 stable fenrir ram qs dynamic bar clocks lyrics blur">
+          <div class="dl-card-header">
+            <div class="dl-icon-badge">🌟</div>
+            <span class="dl-ver-badge stable">Stable</span>
+          </div>
+          <div class="dl-ver">Lunaris v3.12</div>
+          <div class="dl-device">Redmi K50i (xaga) · Android 16 · Aug 2026</div>
+          <ul class="dl-tags">
+            <li>Android 16</li>
+            <li>LineageOS Core</li>
+            <li>Fenrir LK</li>
+            <li>Fastboot</li>
+          </ul>
+          <ul class="dl-changelog">
+            <li>New Fenrir LK with low-latency governor</li>
+            <li>Optimized RAM management &amp; zRAM compression</li>
+            <li>Refined QS expansion and tile animations</li>
+            <li>Haptic feedback tuned on brightness slider</li>
+            <li>Improved Dynamic Bar island animations</li>
+            <li>Smoother launcher blur &amp; lockscreen clock layouts</li>
+            <li>Lyrics sync timing calibrated</li>
+          </ul>
+          <div class="dl-btn-group">
+            <a href="https://drive.google.com/file/d/13SLrzOPtOUYVpZywVkuMo_KiGt4qIK9p/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn bp" style="justify-content:center;font-size:0.95rem;">
+              <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Fastboot ROM (GDrive)
+            </a>
+            <div class="dl-checksum">
+              <span class="dl-checksum-label">SHA-256</span>
+              <span class="dl-checksum-val" title="Click to copy hash" onclick="copyChecksum('13SLrzOPtOUYVpZywVkuMo_KiGt4qIK9p_v312', this)">f1253703c02c9a8f29ef2aacdf60cc3288ffd45cfa2c4b4987b6bb7b59f8f82b</span>
+              <button class="dl-checksum-copy" onclick="copyChecksum('f1253703c02c9a8f29ef2aacdf60cc3288ffd45cfa2c4b4987b6bb7b59f8f82b', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- v3.11 -->
+        <div class="dl-card" data-type="stable" data-keywords="v3.11 stable dolby atmos wifi signal recents monet weather clocks album art">
+          <div class="dl-card-header">
+            <div class="dl-icon-badge">✨</div>
+            <span class="dl-ver-badge stable">Stable</span>
+          </div>
+          <div class="dl-ver">Lunaris v3.11</div>
+          <div class="dl-device">Redmi K50i (xaga) · Android 16 · Jun 2026</div>
+          <ul class="dl-tags">
+            <li>Android 16</li>
+            <li>Dolby Atmos</li>
+            <li>Stable</li>
+          </ul>
+          <ul class="dl-changelog">
+            <li>Added system-wide Dolby Atmos audio processing</li>
+            <li>Fixed WiFi &amp; cellular signal statusbar icon sizing</li>
+            <li>Smooth custom recents card swipe animations</li>
+            <li>Fixed QS media position reset bug in QQS and QS</li>
+            <li>15 brand-new clock styles with live weather sync</li>
+            <li>Advanced Monet customisation engine</li>
+            <li>Album art color override for lockscreen clocks</li>
+          </ul>
+          <div class="dl-btn-group">
+            <a href="https://drive.google.com/file/d/1seFrVjwxDb40dJ8RsDwzl2nC1F6i5Upm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn bp" style="justify-content:center;">
+              <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Fastboot ROM
+            </a>
+            <div class="dl-checksum">
+              <span class="dl-checksum-label">SHA-256</span>
+              <span class="dl-checksum-val" title="Click to copy hash" onclick="copyChecksum('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', this)">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+              <button class="dl-checksum-copy" onclick="copyChecksum('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- v3.10 Hotfix 1.2 -->
+        <div class="dl-card" data-type="hotfix" data-keywords="v3.10 hotfix 1.2 skydrove idle sleep gemini split qs oneui app lock">
+          <div class="dl-card-header">
+            <div class="dl-icon-badge">⚡</div>
+            <span class="dl-ver-badge hotfix">Hotfix 1.2</span>
+          </div>
+          <div class="dl-ver">Lunaris 3.10 Hotfix 1.2</div>
+          <div class="dl-device">Redmi K50i (xaga) · Android 16 · May 2026</div>
+          <ul class="dl-tags">
+            <li>Android 16</li>
+            <li>Hotfix</li>
+            <li>Fastboot</li>
+          </ul>
+          <ul class="dl-changelog">
+            <li>Added skydrove color customisation for clock styles</li>
+            <li>Option to browse and preview all lockscreen clocks</li>
+            <li>Statusbar brightness gesture control</li>
+            <li>Idle manager trigger option for sleep mode</li>
+            <li>Power button Gemini AI trigger animation</li>
+            <li>OneUI app drawer performance optimization</li>
+            <li>Initial split QS layout &amp; app lock notification fix</li>
+          </ul>
+          <div class="dl-btn-group">
+            <a href="https://drive.google.com/file/d/1TbjVX_ye-TkiYtQxZ4rJklOl6Gd5_VT9/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn bp" style="justify-content:center;">
+              <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Fastboot ROM
+            </a>
+            <div class="dl-checksum">
+              <span class="dl-checksum-label">SHA-256</span>
+              <span class="dl-checksum-val" title="Click to copy hash" onclick="copyChecksum('c9f1b203c94f54e19b33a82e987c2f605a92d47814b62d3a7e58f01b92c4e612', this)">c9f1b203c94f54e19b33a82e987c2f605a92d47814b62d3a7e58f01b92c4e612</span>
+              <button class="dl-checksum-copy" onclick="copyChecksum('c9f1b203c94f54e19b33a82e987c2f605a92d47814b62d3a7e58f01b92c4e612', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- v3.10 Hotfix -->
+        <div class="dl-card" data-type="hotfix" data-keywords="v3.10 hotfix blur dynamic bar sandbox charging wallpaper">
+          <div class="dl-card-header">
+            <div class="dl-icon-badge">⚡</div>
+            <span class="dl-ver-badge hotfix">Hotfix</span>
+          </div>
+          <div class="dl-ver">Lunaris v3.10 Hotfix</div>
+          <div class="dl-device">Redmi K50i (xaga) · Android 16 · May 2026</div>
+          <ul class="dl-tags">
+            <li>Android 16</li>
+            <li>Hotfix</li>
+            <li>Fastboot</li>
+          </ul>
+          <ul class="dl-changelog">
+            <li>Fixed blur shader rendering on secondary displays</li>
+            <li>Optimized Dynamic Bar island touch responsiveness</li>
+            <li>System Sandbox runtime performance boost</li>
+            <li>Improved keyguard charging info accuracy &amp; layout</li>
+            <li>Smoother wallpaper zoom transitions on unlock</li>
+          </ul>
+          <div class="dl-btn-group">
+            <a href="https://drive.google.com/file/d/1fgwHybkwSjbaBBGD9rNshaLlSyxAv9VK/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn bp" style="justify-content:center;">
+              <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Fastboot ROM
+            </a>
+          </div>
+        </div>
+
+        <!-- v3.10 -->
+        <div class="dl-card" data-type="stable" data-keywords="v3.10 stable torch intensity qs widget slider neumatic cpu info">
+          <div class="dl-card-header">
+            <div class="dl-icon-badge">🚀</div>
+            <span class="dl-ver-badge stable">Stable</span>
+          </div>
+          <div class="dl-ver">Lunaris v3.10</div>
+          <div class="dl-device">Redmi K50i (xaga) · Android 16 · May 2026</div>
+          <ul class="dl-tags">
+            <li>Android 16</li>
+            <li>Stable</li>
+            <li>Fastboot</li>
+          </ul>
+          <ul class="dl-changelog">
+            <li>Working torch multi-level intensity control</li>
+            <li>Quick Settings panel media widget &amp; volume slider</li>
+            <li>Neumatic clock style + 13 random clock styles</li>
+            <li>Lockscreen CPU info overlay toggle</li>
+          </ul>
+          <div class="dl-btn-group">
+            <a href="https://drive.google.com/file/d/1to22VAN6Z8TKXUaTgHv04Tz7E4VknxQy/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn bp" style="justify-content:center;">
+              <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Fastboot ROM
+            </a>
+          </div>
+        </div>
+
+        <!-- v3.9 -->
+        <div class="dl-card" data-type="stable" data-keywords="v3.9 stable prime core spotify chip art dynamic bar bugs">
+          <div class="dl-card-header">
+            <div class="dl-icon-badge">🔥</div>
+            <span class="dl-ver-badge stable">Stable</span>
+          </div>
+          <div class="dl-ver">Lunaris v3.9</div>
+          <div class="dl-device">Redmi K50i (xaga) · Android 16 · Apr 2026</div>
+          <ul class="dl-tags">
+            <li>Android 16</li>
+            <li>Stable</li>
+          </ul>
+          <ul class="dl-changelog">
+            <li>Fixed audio service Prime core drain</li>
+            <li>Fixed ongoing chip art display for Spotify</li>
+            <li>Resolved dynamic bar glitching during rotation</li>
+            <li>Refined Monet accent color extraction</li>
+          </ul>
+          <div class="dl-btn-group">
+            <a href="https://drive.google.com/file/d/1EjHQTIiWe0vtI8l74qbs0nRO5-8o7Qqz/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn bg" style="justify-content:center;">
+              <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Fastboot ROM
+            </a>
+          </div>
+        </div>
+
+        <!-- v3.8 -->
+        <div class="dl-card" data-type="stable" data-keywords="v3.8 stable notch battery ring music appdrawer mirror gofile">
+          <div class="dl-card-header">
+            <div class="dl-icon-badge">📦</div>
+            <span class="dl-ver-badge stable">Stable</span>
+          </div>
+          <div class="dl-ver">Lunaris v3.8</div>
+          <div class="dl-device">Redmi K50i (xaga) · Android 16 · Mar 2026</div>
+          <ul class="dl-tags">
+            <li>Android 16</li>
+            <li>Mirrors Available</li>
+          </ul>
+          <ul class="dl-changelog">
+            <li>Battery indicator in camera notch ring</li>
+            <li>Custom clock sizing slider in settings</li>
+            <li>Music playback progress ring around notch</li>
+            <li>Introduced multiple app drawer layouts</li>
+          </ul>
+          <div class="dl-btn-group" style="position:relative;">
+            <button class="btn bg" id="dl38-btn" onclick="toggleDl38(event)" style="width:100%;justify-content:center;">
+              Choose Download Mirror (GDrive / GoFile) ▾
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="premium-footer scroll-reveal">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="footer-logo-row">
+            <div class="nav-logo-icon">🌕</div>
+            <span class="footer-logo">LUNARIS AOSP</span>
+          </div>
+          <p class="footer-desc">
+            A meticulously crafted custom Android 16 experience for the Redmi K50i (xaga), combining LineageOS stability with deep customization and speed.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Overview</a>
+          <a href="downloads.html">Downloads</a>
+          <a href="changelog.html">Changelogs</a>
+          <a href="guide.html">Flashing Guide</a>
+        </div>
+        <div class="footer-col">
+          <h4>Community & Support</h4>
+          <a href="https://github.com/itsrohan17" target="_blank" rel="noopener noreferrer">Maintainer GitHub (itsrohan17)</a>
+          <a href="https://github.com/Lunaris-AOSP" target="_blank" rel="noopener noreferrer">Source Code (Lunaris-AOSP)</a>
+          <a href="https://t.me/screenshotsxaga" target="_blank" rel="noopener noreferrer">Telegram Channel (Updates)</a>
+          <a href="https://t.me/XAGASupport" target="_blank" rel="noopener noreferrer">Telegram Group (Support)</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="device-info">
+          <span><span class="info-label">Device</span> xaga (Redmi K50i)</span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Android</span> 16</span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Latest</span> <span class="live-tag">v3.13</span></span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Maintainer</span> dev Rohan</span>
+        </div>
+        <p class="copyright">© 2026 Lunaris AOSP. Crafted with precision for Redmi K50i.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- DL38 POPUP (OUTSIDE PAGE-ROOT) -->
+  <div class="community-popup" id="dl38-popup" role="menu" aria-label="Download Mirrors">
+    <div class="comm-popup-label">⬇ Choose Mirror · v3.8</div>
+    <a href="https://drive.usercontent.google.com/download?id=1_caPSR7IFrYbSn84t2uakOdltH_6XNYL&export=download&authuser=0" target="_blank" rel="noopener noreferrer" class="comm-item">
       <div class="comm-icon">
-        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
       </div>
-      <div class="comm-text"><span class="comm-title">Google Drive</span><span class="comm-sub">Recommended mirror</span></div>
+      <div class="comm-text">
+        <span class="comm-title">Google Drive</span>
+        <span class="comm-sub">High-speed direct download</span>
+      </div>
     </a>
     <div class="comm-divider"></div>
-    <a href="https://gofile.io/d/VHr9Gr" target="_blank" class="comm-item">
+    <a href="https://gofile.io/d/VHr9Gr" target="_blank" rel="noopener noreferrer" class="comm-item">
       <div class="comm-icon comm-icon-support">
-        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
       </div>
-      <div class="comm-text"><span class="comm-title">GoFile</span><span class="comm-sub">Temporary mirror</span></div>
+      <div class="comm-text">
+        <span class="comm-title">GoFile Mirror</span>
+        <span class="comm-sub">Fast alternate mirror</span>
+      </div>
     </a>
     <div class="comm-divider"></div>
-    <div class="dl-checksum">
+    <div class="dl-checksum" style="margin:4px 0 0;">
       <span class="dl-checksum-label">SHA-256</span>
-      <span class="dl-checksum-val" id="checksum-val" title="Click to copy" onclick="copyChecksum()">f1253703c02c9a8f29ef2aacdf60cc3288ffd45cfa2c4b4987b6bb7b59f8f82b</span>
-      <button class="dl-checksum-copy" onclick="copyChecksum()">Copy</button>
+      <span class="dl-checksum-val" title="Click to copy" onclick="copyChecksum('f1253703c02c9a8f29ef2aacdf60cc3288ffd45cfa2c4b4987b6bb7b59f8f82b', this)">f1253703c02c9a8f29ef2aacdf60cc3288ffd45cfa2c4b4987b6bb7b59f8f82b</span>
+      <button class="dl-checksum-copy" onclick="copyChecksum('f1253703c02c9a8f29ef2aacdf60cc3288ffd45cfa2c4b4987b6bb7b59f8f82b', this)">Copy</button>
     </div>
   </div>
 
   <script>
-    (function () {
-      const isMobile = window.LUNARIS_IS_MOBILE ?? matchMedia('(max-width:767px)').matches;
+    function filterDownloads() {
+      const query = document.getElementById('dl-search').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('#downloads-grid .dl-card');
+      cards.forEach(card => {
+        const text = (card.textContent + ' ' + (card.getAttribute('data-keywords') || '')).toLowerCase();
+        if (!query || text.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
 
-      window.toggleDl38 = function (e) {
-        e.stopPropagation(); const popup = document.getElementById('dl38-popup'); const btn = document.getElementById('dl38-btn');
-        if(!popup || !btn) return; const rect = btn.getBoundingClientRect(); const W = 240; const pH = 190;
-        let left = rect.left + rect.width / 2 - W / 2; if (left < 8) left = 8; if (left + W > window.innerWidth - 8) left = window.innerWidth - W - 8;
-        popup.style.top = (rect.top - pH - 8) + 'px'; popup.style.left = left + 'px'; popup.classList.toggle('open');
-      };
-      window.copyChecksum = function () {
-        const hash = 'f1253703c02c9a8f29ef2aacdf60cc3288ffd45cfa2c4b4987b6bb7b59f8f82b'; const btn = document.querySelector('.dl-checksum-copy');
-        navigator.clipboard.writeText(hash).catch(() => { const ta = document.createElement('textarea'); ta.value = hash; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); });
-        if (btn) { btn.textContent = 'Copied!'; btn.style.color = '#34d399'; setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = ''; }, 2000); }
-      };
-      document.addEventListener('click', function (e) { const btn38 = document.getElementById('dl38-btn'); const pop38 = document.getElementById('dl38-popup'); if (pop38 && btn38 && !btn38.contains(e.target) && !pop38.contains(e.target)) { pop38.classList.remove('open'); } });
-    })();
+    function filterBuildType(type, btn) {
+      document.querySelectorAll('.ss-filters .filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const cards = document.querySelectorAll('#downloads-grid .dl-card');
+      cards.forEach(card => {
+        const cardType = card.getAttribute('data-type');
+        if (type === 'all' || cardType === type) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
   </script>
 </body>
+
 </html>

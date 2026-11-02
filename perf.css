@@ -1,502 +1,96 @@
+/* =============================================
+   LUNARIS AOSP — PERFORMANCE & GPU TUNING
+   perf.css
+   ============================================= */
 
+/* Native momentum scrolling & viewport stabilization */
+html {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: auto;
+  overflow-x: clip;
+}
 
+body {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overflow-x: clip;
+}
+
+/* Hardware acceleration & smooth compositing */
+.ambient-glow,
+#pc,
+.btn,
+.bento-card,
+.pf,
+.dl-card,
+.tl-card,
+.spec-card,
+.nav-container {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Touch responsiveness */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .filter-btn,
+  .gallery-arrow-btn,
+  .mtab,
+  .cmd-copy,
+  .dl-checksum-copy {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+}
+
+/* Horizontal scroll containers isolation - prevent vertical scroll stealing */
+.ss-carousel {
+  touch-action: pan-x pan-y;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.method-tabs {
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile GPU scroll optimizations & lightweight reveals */
 @media (max-width: 768px) {
-  html {
-    scroll-behavior: smooth;
-    -webkit-tap-highlight-color: transparent;
+  .ambient-glow {
+    opacity: 0.4;
+    animation: none !important;
   }
 
-  /* Optimized glass background rendering for mobile (avoids backdrop-filter GPU scroll locking) */
-  .nav,
-  .community-popup,
-  .dl38-popup,
-  .lightbox {
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-  }
-
-  .nav { background: rgba(8, 10, 22, 0.88); }
-  .feat,
+  .bento-card,
   .dl-card,
   .tl-card,
-  .terminal,
-  .step-card,
-  .filter-btn,
-  .device-info,
-  .cmd-row,
-  .prereq-item,
-  .boot-opt {
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-    background: rgba(10, 14, 28, 0.92) !important;
-  }
-  .bg { background: rgba(8, 10, 22, 0.85); }
-
-  .ambient-glow {
-    opacity: 0.65;
-    transform: translate3d(-50%, 0, 0);
-    animation: none !important;
-    will-change: auto;
+  .spec-card,
+  .terminal-wrap {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
-  @keyframes mobileNebulaPulse {
-    0% { opacity: 0.5; transform: translate3d(-50%, 0, 0) scale(1); }
-    100% { opacity: 0.85; transform: translate3d(-50%, -10px, 0) scale(1.05); }
-  }
-
-  #pc {
-    display: block !important;
-    opacity: 0.6;
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  /* Active touch-down feedback for buttons (excludes scrollable cards to prevent swipe locking) */
   .btn:active,
   .filter-btn:active,
-  .mtab:active,
-  .cmd-copy:active {
+  .mtab:active {
     transform: scale(0.97) !important;
-    transition: transform 0.1s cubic-bezier(0.2, 0, 0.1, 1) !important;
+    transition: transform 0.1s ease !important;
   }
 
-  /* ── Nav & header ── */
-  header {
-    padding: 16px 12px 0;
-  }
-
-  .nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    max-width: calc(100vw - 24px);
-    padding: 10px 16px;
-    margin-bottom: 32px;
-  }
-
-  .nav-badge {
-    font-size: 0.62rem;
-    letter-spacing: 0.04em;
-  }
-
-  .hero-content {
-    margin-top: 24px;
-  }
-
-  h1 {
-    font-size: clamp(2.2rem, 12vw, 3.5rem);
-    margin-bottom: 16px;
-  }
-
-  .gh-stats {
-    gap: 8px;
-    margin-bottom: 32px;
-  }
-
-  .gh-stat {
-    font-size: 0.68rem;
-    padding: 6px 12px;
-  }
-
-  .btns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 40px;
-    padding: 0 8px;
-    width: 100%;
-  }
-
-  .btn {
-    min-height: 44px;
-    flex: 1 1 calc(50% - 10px);
-    max-width: 100%;
-    justify-content: center;
-    font-size: 0.82rem;
-    padding: 10px 14px;
-  }
-
-  @media (max-width: 480px) {
-    .btn {
-      flex: 1 1 100%;
-    }
-  }
-
-  /* ── Download cards (badge clipping fix) ── */
-  .dl-section {
-    padding: 0 12px 48px;
-    overflow: visible;
-    content-visibility: visible;
-  }
-
-  .dl-grid-3 {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    max-width: min(100%, 420px);
-    padding: 0;
-    overflow: visible;
-  }
-
-  .dl-card {
-    overflow: visible;
-    padding: 20px 18px 18px;
-    width: 100%;
-  }
-
-  /* Badge in normal flow — no negative offset clipping */
-  .dl-badge-wrap {
-    position: static !important;
-    transform: none !important;
-    display: flex;
-    justify-content: center;
-    margin: 0 0 14px;
-    animation: none !important;
-  }
-
-  .dl-ver-badge {
-    font-size: 0.68rem;
-    padding: 5px 14px;
-  }
-
-  .dl-icon {
-    margin: 0 0 10px;
-    font-size: 2rem;
-  }
-
-  .dl-ver {
-    font-size: 1.05rem;
-    line-height: 1.3;
-    word-break: break-word;
-  }
-
-  .dl-device {
-    margin-bottom: 12px;
-  }
-
-  .dl-tags {
-    gap: 6px;
-    margin-bottom: 14px;
-  }
-
-  .dl-tags li {
-    font-size: 0.62rem;
-    padding: 4px 9px;
-  }
-
-  .dl-changelog li {
-    font-size: 0.68rem;
-    padding-left: 8px;
-  }
-
-  .dl-btn-group {
-    margin-top: 4px;
-  }
-
-  /* ── Gallery ── */
-  .ss {
-    padding: 0 10px 48px;
-    content-visibility: visible;
-  }
-
-  .ss-filters {
-    gap: 6px;
-    padding: 0 4px;
-  }
-
-  .filter-btn {
-    padding: 8px 14px;
-    font-size: 0.8rem;
-  }
-
-  .ss-carousel {
-    gap: 16px;
-    padding: 10px 4px 32px;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    touch-action: pan-x pan-y;
-  }
-
-  .pw {
-    width: min(72vw, 200px);
-  }
-
-  /* ── Features ── */
-  .features {
-    padding: 0 12px 48px;
-    content-visibility: visible;
-  }
-
-  .features-grid {
-    gap: 16px;
-  }
-
-  .feat {
-    padding: 24px 20px;
-  }
-
-  /* ── Guide / terminal ── */
-  .terminal-section {
-    padding: 0 12px 48px;
-    content-visibility: visible;
-  }
-
-  .terminal-wrap {
-    max-width: 100%;
-  }
-
-  .method-tabs {
-    flex-wrap: wrap;
-  }
-
-  .mtab {
-    flex: 1 1 30%;
-    min-width: 0;
-    font-size: 0.78rem;
-    padding: 10px 6px;
-  }
-
-  .cmd-row {
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .cmd-text {
-    flex: 1 1 100%;
-    font-size: 0.68rem;
-    word-break: break-word;
-    overflow-wrap: anywhere;
-  }
-
-  .cmd-copy {
-    margin-left: auto;
-    min-height: 32px;
-  }
-
-  /* ── Changelog timeline ── */
-  .timeline-section {
-    padding: 0 12px 48px;
-    content-visibility: visible;
-  }
-
-  .timeline {
-    padding-left: 24px;
-  }
-
-  .tl-item {
-    transform: translate3d(0, 14px, 0) !important;
-    opacity: 0;
-    transition:
-      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
-  }
-
-  .tl-item.visible {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) !important;
-  }
-
-  .tl-dot {
-    left: -20px;
-  }
-
-  .tl-card {
-    padding: 16px;
-  }
-
-  .tl-header {
-    gap: 8px;
-  }
-
-  .tl-version {
-    font-size: 1rem;
-  }
-
-  /* ── Footer ── */
-  .premium-footer {
-    padding: 48px 16px 24px;
-    content-visibility: visible;
-  }
-
-  .footer-grid {
-    gap: 28px;
-  }
-
-  .device-info {
-    padding: 10px 16px;
-    font-size: 0.65rem;
-    gap: 8px;
-    border-radius: 16px;
-    max-width: 100%;
-  }
-
-  .dot-sep {
-    display: none;
-  }
-
-  .device-info span {
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* ── Lightbox ── */
-  .lightbox-close {
-    top: 12px;
-    right: 16px;
-    font-size: 32px;
-  }
-
-  .lightbox-content {
-    max-width: 94vw;
-    max-height: 82vh;
-    border-radius: 16px;
-  }
-
-  /* ── Animations (GPU-friendly) ── */
-  .rev {
-    animation: mobileFadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    transform: translate3d(0, 12px, 0);
-  }
-
-  @keyframes mobileFadeUp {
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-
-  .d1 { animation-delay: 0.02s !important; }
-  .d2 { animation-delay: 0.05s !important; }
-  .d3 { animation-delay: 0.08s !important; }
-  .d4 { animation-delay: 0.11s !important; }
-  .d5 { animation-delay: 0.14s !important; }
-  .d6 { animation-delay: 0.17s !important; }
-
-  .rev[style*="animation-delay"] {
-    animation-delay: 0.2s !important;
-  }
-
+  /* Rapid lightweight entry on mobile to prevent scroll hitching */
   .scroll-reveal {
-    transition:
-      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    transform: translate3d(0, 14px, 0);
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
   }
 
-  .scroll-reveal.active {
-    transform: none;
-  }
-
-  html.is-mobile .scroll-reveal.in-view {
-    opacity: 1;
-    transform: none;
-  }
-
-  .feat {
-    transform: translate3d(0, 14px, 0);
-    transition:
-      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 0.25s,
-      background-color 0.25s;
-  }
-
-  .feat.visible,
-  .feat.rev.visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  .feat.rev {
-    animation: mobileFadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-
-  .terminal-wrap {
-    transition:
-      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    transform: translate3d(0, 14px, 0);
-  }
-
-  .terminal-wrap.visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  .dl-card {
-    transform: translate3d(0, 14px, 0);
-    transition:
-      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 0.25s,
-      box-shadow 0.25s;
-  }
-
-  .dl-card.visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  .dl-card:nth-child(1) { transition-delay: 0s !important; }
-  .dl-card:nth-child(2) { transition-delay: 0.04s !important; }
-  .dl-card:nth-child(3) { transition-delay: 0.08s !important; }
-  .dl-card:nth-child(4) { transition-delay: 0.12s !important; }
-  .dl-card:nth-child(5) { transition-delay: 0.16s !important; }
-  .dl-card:nth-child(6) { transition-delay: 0.2s !important; }
-
-  .dl-card.visible .dl-changelog li {
-    transition-duration: 0.2s !important;
-    transition-delay: 0s !important;
-  }
-
-  .rev.visible,
   .scroll-reveal.active,
-  .feat.visible,
-  .terminal-wrap.visible,
-  .dl-card.visible,
-  .tl-item.visible {
-    opacity: 1 !important;
-    transform: none !important;
-    will-change: auto !important;
-  }
-
-  .btn,
-  .filter-btn,
-  .pf,
-  .pw,
-  .dl-card,
-  .tl-card,
-  .mtab,
-  .cmd-copy {
-    transition-property: transform, opacity, border-color, background-color, box-shadow, color;
-    transition-duration: 0.22s;
-    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .btn:hover,
-  .feat:hover,
-  .dl-card:hover,
-  .tl-card:hover,
-  .pf:hover {
+  .scroll-reveal.visible,
+  .scroll-reveal.in-view {
+    opacity: 1;
     transform: none;
-  }
-
-  .footer-col a::before {
-    display: none;
-  }
-
-  .footer-col a:hover {
-    padding-left: 0;
-  }
-
-  /* Below-fold sections — skip only on homepage gallery/features */
-  .features,
-  .ss {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 400px;
   }
 }

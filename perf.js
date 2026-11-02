@@ -1,3 +1,7 @@
+/* =============================================
+   LUNARIS AOSP — MOBILE PERFORMANCE HELPERS
+   perf.js
+   ============================================= */
 
 (function () {
   'use strict';
@@ -11,6 +15,13 @@
     document.documentElement.classList.add('is-mobile');
   }
 
+  if (mq.addEventListener) {
+    mq.addEventListener('change', function (e) {
+      window.LUNARIS_IS_MOBILE = e.matches;
+      document.documentElement.classList.toggle('is-mobile', e.matches);
+    });
+  }
+
   window.lunarisWhenIdle = function (fn) {
     if ('requestIdleCallback' in window) {
       requestIdleCallback(fn, { timeout: 2000 });
@@ -21,12 +32,13 @@
 
   window.lunarisRevealOpts = function (desktop) {
     return isMobile
-      ? { threshold: 0.04, rootMargin: '80px 0px 40px 0px' }
-      : desktop;
+      ? { threshold: 0, rootMargin: '350px 0px 250px 0px' }
+      : (desktop || { threshold: 0.05, rootMargin: '100px 0px 60px 0px' });
   };
 
   function markInView() {
     if (!isMobile) return;
+    var targets = document.querySelectorAll('.scroll-reveal, .dl-card, .feat, .tl-item, .terminal-wrap, .spec-card');
     if ('IntersectionObserver' in window) {
       var obs = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
@@ -35,13 +47,13 @@
             obs.unobserve(e.target);
           }
         });
-      }, { rootMargin: '100px 0px 40px 0px', threshold: 0.01 });
+      }, { rootMargin: '350px 0px 250px 0px', threshold: 0 });
 
-      document.querySelectorAll('.scroll-reveal, .dl-card, .feat, .tl-item, .terminal-wrap').forEach(function (el) {
+      targets.forEach(function (el) {
         obs.observe(el);
       });
     } else {
-      document.querySelectorAll('.scroll-reveal, .dl-card, .feat, .tl-item, .terminal-wrap').forEach(function (el) {
+      targets.forEach(function (el) {
         el.classList.add('in-view', 'active', 'visible');
       });
     }

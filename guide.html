@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#03050a">
-  <title>Flashing Guide · Lunaris AOSP</title>
+  <meta name="theme-color" content="#03050d">
+  <title>Flashing Guide · Lunaris AOSP | Redmi K50i (xaga)</title>
 
   <meta name="description" content="Step-by-step flashing guide for installing Lunaris AOSP on Redmi K50i (xaga) via Fastboot (Windows, Linux, Termux).">
-  <meta name="keywords" content="Flashing guide, Lunaris AOSP install, Redmi K50i fastboot flash">
+  <meta name="keywords" content="Flashing guide, Lunaris AOSP install, Redmi K50i fastboot flash, xaga installation tutorial">
   <meta name="author" content="dev Rohan (itsrohan17)">
   <link rel="canonical" href="https://itsrohan17.github.io/Lunaris-Aosp-Xaga-website/guide.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://itsrohan17.github.io/Lunaris-Aosp-Xaga-website/guide.html">
-  <meta property="og:title" content="Flashing Guide · Lunaris AOSP">
-  <meta property="og:description" content="Step-by-step flashing guide for installing Lunaris AOSP on Redmi K50i (xaga) via Fastboot.">
+  <meta property="og:title" content="Flashing Guide · Lunaris AOSP | Redmi K50i">
+  <meta property="og:description" content="Step-by-step flashing guide for installing Lunaris AOSP on Redmi K50i via Fastboot.">
   <meta property="og:site_name" content="Lunaris AOSP">
+  <meta property="og:image" content="screenshots/homescreen.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Flashing Guide · Lunaris AOSP">
-  <meta name="twitter:description" content="Step-by-step flashing guide for installing Lunaris AOSP on Redmi K50i (xaga) via Fastboot.">
+  <meta name="twitter:title" content="Flashing Guide · Lunaris AOSP | Redmi K50i">
+  <meta name="twitter:description" content="Step-by-step flashing guide for installing Lunaris AOSP on Redmi K50i via Fastboot.">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌕</text></svg>">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="perf.css">
@@ -38,330 +40,405 @@
   <script src="stars.js" defer></script>
   <script src="transitions.js"></script>
   <script src="script.js" defer></script>
-
-  <style>
-    :root { --bg: #03050a; --bg-gradient: radial-gradient(circle at top, #0d1126 0%, #03050a 70%); --border: rgba(255, 255, 255, 0.06); --violet: #a78bfa; --accent: #8b5cf6; --sky: #38bdf8; --text: #f8fafc; --muted: #94a3b8; --glass: rgba(255, 255, 255, 0.03); --glass-border: rgba(255, 255, 255, 0.08); }
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Outfit', sans-serif; background: var(--bg); background-image: var(--bg-gradient); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-    .ambient-glow { position: fixed; top: -20vh; left: 50%; transform: translateX(-50%); width: 120vw; height: 100vh; background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 60%); z-index: 0; pointer-events: none; animation: nebulaBreathe 12s ease-in-out infinite alternate; will-change: transform; }
-    @media (max-width: 768px) { .ambient-glow { animation: none; opacity: 0.8; } }
-    @keyframes nebulaBreathe { 0% { transform: translateX(-50%) scale(1); opacity: 0.8; } 100% { transform: translateX(-48%) scale(1.05); opacity: 1; } }
-    #pc { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.7; }
-    .rev { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.3s; }
-    header { position: relative; z-index: 10; padding: 24px 16px 0; text-align: center; }
-    .nav { display: inline-flex; justify-content: space-between; align-items: center; margin: 0 auto 48px; padding: 10px 20px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 100px; backdrop-filter: blur(16px); box-shadow: 0 4px 24px rgba(0,0,0,0.2); gap: 16px; }
-    .nav-logo { font-weight: 800; font-size: 0.9rem; letter-spacing: 0.1em; color: var(--text); }
-    .nav-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); }
-    .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; }
-    .hero-content { margin-top: 40px; }
-    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--violet); text-transform: uppercase; margin-bottom: 16px; }
-    h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; background: linear-gradient(135deg, #fff 0%, #c4b5fd 50%, #818cf8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 24px; }
-    .btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px; position: relative; z-index: 20; }
-    .btn { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; font-weight: 500; font-size: 0.9rem; border-radius: 12px; text-decoration: none; color: #fff; border: 1px solid transparent; cursor: pointer; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-    .btn:hover { transform: translateY(-3px); }
-    .btn:active { transform: translateY(1px); }
-    .btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent); transform: skewX(-20deg); transition: 0.6s ease; }
-    .btn:hover::after { left: 150%; }
-    .bg { background: var(--glass); border-color: var(--glass-border); backdrop-filter: blur(10px); }
-    .bg:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-    .terminal-section { position: relative; z-index: 10; padding: 0 16px 64px; }
-    .terminal-wrap { max-width: 700px; margin: 0 auto; }
-    .terminal { background: rgba(5,8,20,0.85); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; backdrop-filter: blur(12px); }
-    .terminal-bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: rgba(255,255,255,0.04); border-bottom: 1px solid var(--glass-border); }
-    .t-dot { width: 12px; height: 12px; border-radius: 50%; }
-    .t-dot.r { background: #ff5f57; } .t-dot.y { background: #febc2e; } .t-dot.g { background: #28c840; }
-    .t-title { margin-left: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; }
-    .cmd-list { padding: 16px; }
-    .prereq-list { display: flex; flex-direction: column; gap: 8px; }
-    .prereq-item { font-size: 0.8rem; padding: 8px 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 8px; line-height: 1.5; color: var(--text); }
-    kbd { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.3); border-radius: 4px; padding: 1px 6px; color: var(--violet); }
-    .prompt-block { margin-bottom: 12px; }
-    .prompt-title { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--sky); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
-    .prompt-row { font-size: 0.8rem; color: var(--muted); padding: 8px 12px; border-radius: 8px; margin-bottom: 6px; line-height: 1.5; border: 1px solid transparent; }
-    .prompt-row.clean { background: rgba(251,191,36,0.05); border-color: rgba(251,191,36,0.12); }
-    .prompt-row.dirty { background: rgba(56,189,248,0.05); border-color: rgba(56,189,248,0.12); }
-    .prompt-key { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text); font-weight: 600; margin-right: 6px; }
-    .boot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    @media (max-width: 480px) { .boot-grid { grid-template-columns: 1fr; } }
-    .boot-opt { display: flex; align-items: flex-start; gap: 8px; padding: 10px; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 8px; }
-    .boot-num { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #fff; font-weight: 700; }
-    .boot-name { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text); display: block; line-height: 1.2; }
-    .boot-desc { font-size: 0.7rem; color: var(--muted); display: block; margin-top: 4px; }
-    .method-tabs { display: flex; margin-bottom: 0; }
-    .mtab { flex: 1; padding: 12px 8px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: var(--muted); cursor: pointer; transition: all 0.2s; border-bottom: none; }
-    .mtab:first-child { border-radius: 12px 0 0 0; } .mtab:last-child { border-radius: 0 12px 0 0; }
-    .mtab.active { background: rgba(139,92,246,0.1); border-color: rgba(139,92,246,0.3); color: var(--violet); }
-    .step-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
-    .step { display: flex; align-items: flex-start; gap: 10px; font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
-    .step-n { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.3); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--violet); font-weight: 700; }
-    .cmd-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; margin-bottom: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 8px; }
-    .cmd-prompt { color: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; user-select: none; flex-shrink: 0; }
-    .cmd-text { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--violet); flex: 1; word-break: break-all; }
-    .cmd-copy { padding: 4px 10px; background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.3); border-radius: 6px; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--violet); transition: all 0.2s; }
-    .cmd-copy:hover { background: rgba(139,92,246,0.25); }
-    .cmd-section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px 8px; opacity: 0.7; }
-    .premium-footer { position: relative; z-index: 10; background: rgba(5, 8, 20, 0.6); border-top: 1px solid var(--glass-border); padding: 60px 20px 30px; margin-top: 40px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto 40px; }
-    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; text-align: center; } }
-    .footer-col h4 { font-weight: 600; font-size: 0.95rem; color: var(--text); margin-bottom: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
-    .footer-col a { display: block; color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-bottom: 12px; transition: color 0.2s, padding-left 0.2s; }
-    .footer-col a:hover { color: var(--violet); padding-left: 5px; }
-    .brand-col .footer-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--text); display: block; margin-bottom: 12px; }
-    .brand-col .footer-desc { color: var(--muted); font-size: 0.85rem; line-height: 1.6; max-width: 300px; }
-    @media (max-width: 768px) { .brand-col .footer-desc { margin: 0 auto; } }
-    .footer-bottom { max-width: 1000px; margin: 0 auto; border-top: 1px solid var(--glass-border); padding-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .device-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); background: var(--glass); padding: 10px 24px; border-radius: 30px; border: 1px solid var(--glass-border); }
-    .info-label { color: var(--violet); text-transform: uppercase; letter-spacing: 0.1em; margin-right: 4px; }
-    .dot-sep { color: rgba(255,255,255,0.2); }
-    .copyright { font-size: 0.75rem; color: var(--muted); }
-    ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.5); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.8); }
-    /* === ANIMATIONS === */
-    .terminal-wrap { opacity: 0; transform: translateY(25px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
-    .terminal-wrap.visible { opacity: 1; transform: translateY(0); }
-
-    @keyframes stepPulse {
-      0%, 100% { box-shadow: 0 0 0 rgba(139,92,246,0); }
-      50% { box-shadow: 0 0 12px rgba(139,92,246,0.4); }
-    }
-    .step-n { transition: transform 0.3s, box-shadow 0.3s; }
-    .step:hover .step-n { transform: scale(1.15); box-shadow: 0 0 12px rgba(139,92,246,0.4); }
-
-    .cmd-row { transition: border-color 0.3s, box-shadow 0.3s; }
-    .cmd-row:hover { border-color: rgba(139,92,246,0.3); box-shadow: 0 0 20px rgba(139,92,246,0.08); }
-
-    .cmd-copy { transition: all 0.2s, box-shadow 0.3s; }
-    .cmd-copy:hover { background: rgba(139,92,246,0.25); box-shadow: 0 0 12px rgba(139,92,246,0.3); }
-
-    @keyframes termDotBlink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    .t-dot.g { animation: termDotBlink 2s ease-in-out infinite; }
-
-    .terminal { transition: border-color 0.3s, box-shadow 0.3s; }
-    .terminal:hover { border-color: rgba(139,92,246,0.2); box-shadow: 0 8px 30px rgba(139,92,246,0.06); }
-
-    .mtab { transition: all 0.3s; }
-    .mtab.active { position: relative; }
-    .mtab.active::after { content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 2px; background: var(--violet); border-radius: 2px; }
-
-    .prereq-item { transition: border-color 0.3s, transform 0.3s; }
-    .prereq-item:hover { border-color: rgba(139,92,246,0.2); transform: translateX(4px); }
-
-    .boot-opt { transition: border-color 0.3s, transform 0.3s; }
-    .boot-opt:hover { border-color: rgba(139,92,246,0.3); transform: translateY(-2px); }
-
-    @keyframes dotPulse {
-      0%, 100% { box-shadow: 0 0 8px #10b981; }
-      50% { box-shadow: 0 0 16px #10b981, 0 0 24px rgba(16,185,129,0.3); }
-    }
-    .nav-dot { animation: dotPulse 2s ease-in-out infinite; }
-
-    .footer-col a { position: relative; }
-    .footer-col a::before { content: '\2192'; position: absolute; left: -15px; opacity: 0; transform: translateX(-5px); transition: opacity 0.2s, transform 0.2s; color: var(--violet); }
-    .footer-col a:hover::before { opacity: 1; transform: translateX(0); }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-    }
-  </style>
-
 </head>
+
 <body>
 
-  <canvas id="pc"></canvas>
-  <div class="ambient-glow" id="nebula"></div>
+  <canvas id="pc" aria-hidden="true"></canvas>
+  <div class="ambient-glow" id="nebula" aria-hidden="true"></div>
 
+  <!-- NAVIGATION HEADER -->
   <header>
-    <nav class="nav scroll-reveal">
-      <a href="index.html" style="text-decoration:none;"><span class="nav-logo">LUNARIS</span></a>
-      <span class="nav-badge">BUILD 2026 · XAGA</span>
-      <div class="nav-dot"></div>
-    </nav>
-    <div class="hero-content">
-      <p class="eyebrow rev d1">Installation Instructions</p>
-      <div class="title-wrap rev d2">
-        <h1>FLASHING GUIDE</h1>
-      </div>
-      <div class="btns rev d3">
-        <a href="index.html" class="btn bg">
-          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-          Back to Home
+    <nav class="nav-container scroll-reveal" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo-icon">🌕</div>
+        <span class="nav-logo-text">LUNARIS</span>
+        <span class="nav-badge-pill">XAGA · 2026</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Overview</a></li>
+        <li><a href="downloads.html" class="nav-link">Downloads</a></li>
+        <li><a href="changelog.html" class="nav-link">Changelogs</a></li>
+        <li><a href="guide.html" class="nav-link active">Flashing Guide</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="downloads.html" class="btn bp" style="padding:8px 16px;font-size:0.82rem;border-radius:999px;">
+          <span>Get ROM</span>
         </a>
+        <div class="nav-dot" title="Builds Active"></div>
+        <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu" onclick="document.getElementById('mobile-drawer').classList.toggle('open')">
+          ☰
+        </button>
       </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu-drawer" id="mobile-drawer">
+      <a href="index.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Overview</a>
+      <a href="downloads.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Downloads</a>
+      <a href="changelog.html" class="nav-link" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Changelogs</a>
+      <a href="guide.html" class="nav-link active" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Flashing Guide</a>
+      <a href="https://t.me/screenshotsxaga" target="_blank" rel="noopener noreferrer" class="nav-link" style="color:var(--sky);">Telegram Updates ↗</a>
+      <a href="https://github.com/itsrohan17" target="_blank" rel="noopener noreferrer" class="nav-link" style="color:var(--violet);">Maintainer GitHub ↗</a>
     </div>
   </header>
 
-  <section class="terminal-section scroll-reveal" id="flash-section">
-    <div class="terminal-wrap rev" style="animation-delay:.5s;max-width:700px;margin:0 auto 24px">
-      <div class="terminal">
-        <div class="terminal-bar">
-          <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
-          <span class="t-title">⚠️ Prerequisites</span>
-        </div>
-        <div class="cmd-list" style="padding:14px 16px">
-          <div class="prereq-list">
-            <div class="prereq-item">✅ Unlocked bootloader</div>
-            <div class="prereq-item">✅ PC (Windows/Linux) <em>or</em> secondary Android phone + OTG cable with Termux</div>
-            <div class="prereq-item">✅ Device booted into Fastboot Mode — hold <kbd>Vol Down + Power</kbd> until Fastboot logo appears</div>
-          </div>
-        </div>
+  <main id="page-root">
+    <div class="hero-wrapper" style="margin-bottom:28px;">
+      <p class="hero-pill-badge rev d1">
+        <span>⚡ STEP-BY-STEP TUTORIAL</span>
+      </p>
+      <div class="rev d2">
+        <h1 class="hero-title">FLASHING GUIDE</h1>
       </div>
+      <p class="hero-subtitle rev d3">
+        Automated Fastboot installation guide for Redmi K50i / Poco X4 GT (xaga). Choose your flashing environment below.
+      </p>
     </div>
 
-    <div class="terminal-wrap rev" style="animation-delay:.6s;max-width:700px;margin:0 auto">
-      <div class="method-tabs">
-        <button class="mtab active" onclick="showTab('win',this)">💻 Windows</button>
-        <button class="mtab" onclick="showTab('linux',this)">🐧 Linux</button>
-        <button class="mtab" onclick="showTab('termux',this)">📱 Termux</button>
-      </div>
-
-      <div class="terminal" id="tab-win">
-        <div class="terminal-bar">
-          <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
-          <span class="t-title">Install_Lunaris.bat — Windows</span>
-        </div>
-        <div class="cmd-list">
-          <div class="step-list">
-            <div class="step"><span class="step-n">1</span><span>Extract the downloaded Lunaris ZIP file on your PC</span></div>
-            <div class="step"><span class="step-n">2</span><span>Boot K50i into Fastboot Mode and connect to PC via USB</span></div>
-            <div class="step"><span class="step-n">3</span><span>Double-click <kbd>Install_Lunaris.bat</kbd> inside the extracted folder</span></div>
-            <div class="step"><span class="step-n">4</span><span>Type <kbd>1</kbd> and press Enter to start the installer</span></div>
-            <div class="step"><span class="step-n">5</span><span>Wait — the script flashes all partitions and reboots automatically ✅</span></div>
-          </div>
+    <section class="guide-section scroll-reveal" id="flash-section">
+      <!-- PREREQUISITES CARD -->
+      <div class="guide-alert-box">
+        <div class="guide-alert-icon">⚠️</div>
+        <div class="guide-alert-content">
+          <h3>Crucial Prerequisites Before Flashing</h3>
+          <p>
+            1. <strong>Unlocked Bootloader:</strong> Ensure your Redmi K50i bootloader is unlocked via official Mi Unlock tool.<br>
+            2. <strong>Data Backup:</strong> A clean flash formats internal storage. Back up all photos, documents, and 2FA credentials.<br>
+            3. <strong>Install Drivers:</strong> Install proper Xiaomi Fastboot &amp; ADB USB drivers on your PC so your device is recognized without issues.<br>
+            4. <strong>Battery Level:</strong> Ensure your phone has at least <strong>50% battery</strong> to prevent interruption.<br>
+            5. <strong>Enter Fastboot Mode:</strong> Turn off device, hold <kbd>Volume Down + Power</kbd> until the orange Fastboot logo appears.
+          </p>
         </div>
       </div>
 
-      <div class="terminal" id="tab-linux" style="display:none">
-        <div class="terminal-bar">
-          <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
-          <span class="t-title">linux_installation.sh — Linux</span>
+      <!-- FLASH TYPE SELECTOR TIP -->
+      <div class="guide-type-grid">
+        <div class="spec-card">
+          <div class="spec-label" style="color:#fbbf24;"><span>🔥</span> Clean Flash (Recommended)</div>
+          <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.5;">
+            Mandatory when coming from MIUI/HyperOS, another AOSP ROM, or across major Android versions. Formats userdata cleanly.
+          </div>
         </div>
-        <div class="cmd-list">
-          <div class="step-list">
-            <div class="step"><span class="step-n">1</span><span>Extract the downloaded Lunaris ZIP file on your PC</span></div>
-            <div class="step"><span class="step-n">2</span><span>Boot K50i into Fastboot Mode and connect to PC via USB</span></div>
-            <div class="step"><span class="step-n">3</span><span>Right-click the extracted folder → <kbd>Open in Terminal</kbd></span></div>
-          </div>
-          <div class="cmd-section-label" style="margin-top:4px">// Make script executable</div>
-          <div class="cmd-row">
-            <span class="cmd-prompt">$</span>
-            <span class="cmd-text">chmod +x linux_installation.sh</span>
-            <button class="cmd-copy" onclick="copyCmd(this,'chmod +x linux_installation.sh')">Copy</button>
-          </div>
-          <div class="cmd-section-label">// Run with sudo</div>
-          <div class="cmd-row">
-            <span class="cmd-prompt">$</span>
-            <span class="cmd-text">sudo ./linux_installation.sh</span>
-            <button class="cmd-copy" onclick="copyCmd(this,'sudo ./linux_installation.sh')">Copy</button>
-          </div>
-          <div class="step-list" style="margin-top:10px">
-            <div class="step"><span class="step-n">4</span><span>Wait — the script flashes all partitions and reboots automatically when done ✅</span></div>
+        <div class="spec-card">
+          <div class="spec-label" style="color:#38bdf8;"><span>⚡</span> Dirty Flash / Update</div>
+          <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.5;">
+            Only supported when upgrading between Lunaris builds (e.g., v3.12 to v3.13). Preserves installed apps and user data.
           </div>
         </div>
       </div>
 
-      <div class="terminal" id="tab-termux" style="display:none">
-        <div class="terminal-bar">
-          <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
-          <span class="t-title">install_termux.sh — Mobile to Mobile</span>
+      <!-- TERMINAL EMULATOR WITH PLATFORM TABS -->
+      <div class="terminal-wrap">
+        <div class="method-tabs" role="tablist" aria-label="Operating System Methods">
+          <button class="mtab active" onclick="showTab('win', this)" role="tab" aria-selected="true" data-tab="win">💻 Windows (Batch)</button>
+          <button class="mtab" onclick="showTab('linux', this)" role="tab" aria-selected="false" data-tab="linux">🐧 Linux (Bash)</button>
+          <button class="mtab" onclick="showTab('termux', this)" role="tab" aria-selected="false" data-tab="termux">📱 Termux (OTG Mobile)</button>
+          <button class="mtab" onclick="showTab('recovery', this)" role="tab" aria-selected="false" data-tab="recovery">🛡️ Recovery (Sideload)</button>
         </div>
-        <div class="cmd-list">
-          <div class="step-list">
-            <div class="step"><span class="step-n">1</span><span>Install <strong>Termux</strong> on your host (secondary) Android phone</span></div>
-            <div class="step"><span class="step-n">2</span><span>Open Termux and install Android tools:</span></div>
+
+        <!-- WINDOWS TAB -->
+        <div class="terminal-container" id="tab-win">
+          <div class="terminal-bar">
+            <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
+            <span class="t-title">Install_Lunaris.bat — Windows Fastboot Installer</span>
           </div>
-          <div class="cmd-row">
-            <span class="cmd-prompt">$</span>
-            <span class="cmd-text">pkg install android-tools</span>
-            <button class="cmd-copy" onclick="copyCmd(this,'pkg install android-tools')">Copy</button>
+          <div class="terminal-body">
+            <div class="step-list">
+              <div class="step">
+                <span class="step-n">1</span>
+                <span>Download the latest Lunaris Fastboot ZIP from the <a href="downloads.html" style="color:var(--violet);">Downloads page</a>.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">2</span>
+                <span>Extract the downloaded ZIP archive using 7-Zip or WinRAR into a folder on your PC.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">3</span>
+                <span>Boot your Redmi K50i into Fastboot Mode (<kbd>Vol Down + Power</kbd>) and connect via USB.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">4</span>
+                <span>Double-click <kbd>Install_Lunaris.bat</kbd> inside the extracted folder.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">5</span>
+                <span>When prompted in the CMD window, type <kbd>1</kbd> for Clean Flash (or <kbd>2</kbd> for Dirty Flash).</span>
+              </div>
+              <div class="step">
+                <span class="step-n">6</span>
+                <span>Sit back! The automated script flashes all boot, vendor, and system partitions, then reboots your phone automatically.</span>
+              </div>
+            </div>
+
+            <div class="cmd-section-label">// Verify fastboot connection (Optional CMD check)</div>
+            <div class="cmd-row">
+              <span class="cmd-prompt">C:\&gt;</span>
+              <span class="cmd-text">fastboot devices</span>
+              <button class="cmd-copy" onclick="copyCmd(this, 'fastboot devices')">Copy</button>
+            </div>
           </div>
-          <div class="cmd-row">
-            <span class="cmd-prompt">$</span>
-            <span class="cmd-text">termux-setup-storage</span>
-            <button class="cmd-copy" onclick="copyCmd(this,'termux-setup-storage')">Copy</button>
+        </div>
+
+        <!-- LINUX TAB -->
+        <div class="terminal-container" id="tab-linux" style="display:none;">
+          <div class="terminal-bar">
+            <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
+            <span class="t-title">linux_installation.sh — Linux Fastboot Installer</span>
           </div>
-          <div class="step-list" style="margin-top:10px">
-            <div class="step"><span class="step-n">3</span><span>Extract downloaded Lunaris ZIP file to host phone's internal storage</span></div>
-            <div class="step"><span class="step-n">4</span><span>Boot K50i into Fastboot Mode, connect via <strong>OTG cable</strong></span></div>
-            <div class="step"><span class="step-n">5</span><span>Navigate to the extracted folder:</span></div>
+          <div class="terminal-body">
+            <div class="step-list">
+              <div class="step">
+                <span class="step-n">1</span>
+                <span>Extract the Lunaris ZIP package to your desired directory.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">2</span>
+                <span>Boot Redmi K50i into Fastboot Mode and connect to your Linux PC.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">3</span>
+                <span>Open a Terminal in the extracted directory and grant execution permissions:</span>
+              </div>
+            </div>
+
+            <div class="cmd-section-label">// Make installer script executable</div>
+            <div class="cmd-row">
+              <span class="cmd-prompt">$</span>
+              <span class="cmd-text">chmod +x linux_installation.sh</span>
+              <button class="cmd-copy" onclick="copyCmd(this, 'chmod +x linux_installation.sh')">Copy</button>
+            </div>
+
+            <div class="cmd-section-label">// Execute script with sudo</div>
+            <div class="cmd-row">
+              <span class="cmd-prompt">$</span>
+              <span class="cmd-text">sudo ./linux_installation.sh</span>
+              <button class="cmd-copy" onclick="copyCmd(this, 'sudo ./linux_installation.sh')">Copy</button>
+            </div>
+
+            <div class="step-list" style="margin-top:16px;">
+              <div class="step">
+                <span class="step-n">4</span>
+                <span>Follow the interactive terminal prompts to select Clean or Dirty Flash. The device will reboot once complete.</span>
+              </div>
+            </div>
           </div>
-          <div class="cmd-row">
-            <span class="cmd-prompt">$</span>
-            <span class="cmd-text">cd /sdcard/Download/Lunaris_Folder</span>
-            <button class="cmd-copy" onclick="copyCmd(this,'cd /sdcard/Download/Lunaris_Folder')">Copy</button>
+        </div>
+
+        <!-- TERMUX TAB -->
+        <div class="terminal-container" id="tab-termux" style="display:none;">
+          <div class="terminal-bar">
+            <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
+            <span class="t-title">install_termux.sh — Mobile-to-Mobile via OTG Cable</span>
           </div>
-          <div class="cmd-row">
-            <span class="cmd-prompt">$</span>
-            <span class="cmd-text">chmod +x install_termux.sh</span>
-            <button class="cmd-copy" onclick="copyCmd(this,'chmod +x install_termux.sh')">Copy</button>
+          <div class="terminal-body">
+            <div class="step-list">
+              <div class="step">
+                <span class="step-n">1</span>
+                <span>Install <strong>Termux</strong> on your secondary (host) Android phone.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">2</span>
+                <span>Open Termux and install the required Android platform tools:</span>
+              </div>
+            </div>
+
+            <div class="cmd-row">
+              <span class="cmd-prompt">~ $</span>
+              <span class="cmd-text">pkg update &amp;&amp; pkg install android-tools</span>
+              <button class="cmd-copy" onclick="copyCmd(this, 'pkg update && pkg install android-tools')">Copy</button>
+            </div>
+            <div class="cmd-row">
+              <span class="cmd-prompt">~ $</span>
+              <span class="cmd-text">termux-setup-storage</span>
+              <button class="cmd-copy" onclick="copyCmd(this, 'termux-setup-storage')">Copy</button>
+            </div>
+
+            <div class="step-list" style="margin-top:14px;">
+              <div class="step">
+                <span class="step-n">3</span>
+                <span>Extract the Lunaris ZIP to your host phone's internal storage (e.g. <code>Download/Lunaris</code>).</span>
+              </div>
+              <div class="step">
+                <span class="step-n">4</span>
+                <span>Connect your K50i in Fastboot Mode to the host phone using an OTG adapter cable.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">5</span>
+                <span>Navigate to the extracted folder in Termux and execute:</span>
+              </div>
+            </div>
+
+            <div class="cmd-row">
+              <span class="cmd-prompt">~ $</span>
+              <span class="cmd-text">cd /sdcard/Download/Lunaris &amp;&amp; chmod +x install_termux.sh &amp;&amp; ./install_termux.sh</span>
+              <button class="cmd-copy" onclick="copyCmd(this, 'cd /sdcard/Download/Lunaris && chmod +x install_termux.sh && ./install_termux.sh')">Copy</button>
+            </div>
+
+            <div class="step-list" style="margin-top:14px;">
+              <div class="step">
+                <span class="step-n">6</span>
+                <span>If Termux prompts with a USB Permission dialog popup on screen, tap <strong>OK / Allow</strong>.</span>
+              </div>
+            </div>
           </div>
-          <div class="cmd-row">
-            <span class="cmd-prompt">$</span>
-            <span class="cmd-text">./install_termux.sh</span>
-            <button class="cmd-copy" onclick="copyCmd(this,'./install_termux.sh')">Copy</button>
+        </div>
+
+        <!-- RECOVERY SIDELOAD TAB -->
+        <div class="terminal-container" id="tab-recovery" style="display:none;">
+          <div class="terminal-bar">
+            <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
+            <span class="t-title">Recovery Sideload — Boot, Vendor_Boot &amp; ADB Sideload</span>
           </div>
-          <div class="step-list" style="margin-top:10px">
-            <div class="step"><span class="step-n">6</span><span>Follow on-screen menus. If Termux asks USB permission → tap <strong>OK</strong> ✅</span></div>
+          <div class="terminal-body">
+            <div class="step-list">
+              <div class="step">
+                <span class="step-n">1</span>
+                <span>Ensure your bootloader is unlocked, backup all your data, and install Xiaomi ADB/Fastboot drivers on your PC.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">2</span>
+                <span>Download the ROM zip and Recovery files (<kbd>boot.img</kbd> and <kbd>vendor_boot.img</kbd>) from the <a href="downloads.html" style="color:var(--violet);">Downloads page</a>. Place them in your platform-tools folder.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">3</span>
+                <span>Turn off your Redmi K50i, enter Fastboot Mode by holding <kbd>Volume Down + Power</kbd>, connect USB, and flash the boot and vendor_boot partitions:</span>
+              </div>
+            </div>
+
+            <div class="cmd-section-label">// Flash Boot Image</div>
+            <div class="cmd-row">
+              <span class="cmd-prompt">&gt;</span>
+              <span class="cmd-text">fastboot flash boot boot.img</span>
+              <button class="cmd-copy" onclick="copyCmd(this, 'fastboot flash boot boot.img')">Copy</button>
+            </div>
+
+            <div class="cmd-section-label">// Flash Vendor Boot Image</div>
+            <div class="cmd-row">
+              <span class="cmd-prompt">&gt;</span>
+              <span class="cmd-text">fastboot flash vendor_boot vendor_boot.img</span>
+              <button class="cmd-copy" onclick="copyCmd(this, 'fastboot flash vendor_boot vendor_boot.img')">Copy</button>
+            </div>
+
+            <div class="step-list" style="margin-top:16px;">
+              <div class="step">
+                <span class="step-n">4</span>
+                <span>To boot into recovery manually: Press and hold the <kbd>Volume Up</kbd> button and the <kbd>Power</kbd> button at the same time. Release the <kbd>Power</kbd> button as soon as the Redmi/Mi logo appears on the screen, while continuing to hold the <kbd>Volume Up</kbd> button until the recovery menu opens. Alternatively, run:</span>
+              </div>
+            </div>
+
+            <div class="cmd-section-label">// Reboot into Recovery</div>
+            <div class="cmd-row">
+              <span class="cmd-prompt">&gt;</span>
+              <span class="cmd-text">fastboot reboot recovery</span>
+              <button class="cmd-copy" onclick="copyCmd(this, 'fastboot reboot recovery')">Copy</button>
+            </div>
+
+            <div class="step-list" style="margin-top:16px;">
+              <div class="step">
+                <span class="step-n">5</span>
+                <span>Once in Custom Recovery, tap on <strong>Format Data / Factory Reset</strong> and confirm to wipe userdata.</span>
+              </div>
+              <div class="step">
+                <span class="step-n">6</span>
+                <span>Enable ADB Sideload: Go to <strong>Apply update</strong> &rarr; select <strong>Apply from ADB</strong> (ADB Sideload).</span>
+              </div>
+              <div class="step">
+                <span class="step-n">7</span>
+                <span>On your computer command prompt / terminal, run the sideload command with your ROM zip file:</span>
+              </div>
+            </div>
+
+            <div class="cmd-section-label">// Sideload Lunaris ROM Zip</div>
+            <div class="cmd-row">
+              <span class="cmd-prompt">&gt;</span>
+              <span class="cmd-text">adb sideload Lunaris-AOSP-xaga-UNOFFICIAL-3.13-GMS-2026110116.zip</span>
+              <button class="cmd-copy" onclick="copyCmd(this, 'adb sideload Lunaris-AOSP-xaga-UNOFFICIAL-3.13-GMS-2026110116.zip')">Copy</button>
+            </div>
+
+            <div class="step-list" style="margin-top:16px;">
+              <div class="step">
+                <span class="step-n">8</span>
+                <span>Wait for sideloading to finish (100% or step 2/2). Then in Recovery tap <strong>Reboot system now</strong>. Enjoy Lunaris AOSP!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FIRST BOOT & FAQ ACCORDION -->
+      <div style="margin-top:40px;">
+        <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:16px;color:var(--text);">Frequently Asked Questions &amp; Recovery</h3>
+        
+        <div class="spec-card" style="margin-bottom:12px;">
+          <div class="spec-val" style="font-size:1rem;color:var(--violet);">Q: How long does the first boot take?</div>
+          <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-top:4px;">
+            The initial Android 16 ART runtime compilation and encryption take approximately <strong>2 to 4 minutes</strong>. Do not force power-off during the animated Lunaris logo.
+          </div>
+        </div>
+
+        <div class="spec-card" style="margin-bottom:12px;">
+          <div class="spec-val" style="font-size:1rem;color:var(--violet);">Q: What if Fastboot devices shows no output on Windows?</div>
+          <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-top:4px;">
+            You need to install the <strong>Google USB Fastboot Driver</strong> via Windows Device Manager. Under "Other Devices" → "Android", right-click and update driver pointing to the extracted Google USB driver files.
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-val" style="font-size:1rem;color:var(--violet);">Q: Do Banking Apps and Play Integrity work?</div>
+          <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-top:4px;">
+            Yes! Lunaris AOSP includes built-in Play Integrity spoofing passing deviceIntegrity out of the box without requiring root. Banking apps, Google Pay, and streaming apps run seamlessly.
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="premium-footer scroll-reveal">
-    <div class="footer-grid">
-      <div class="footer-col brand-col">
-        <span class="footer-logo">LUNARIS AOSP</span>
-        <p class="footer-desc">A premium, high-performance custom Android experience crafted meticulously for the Redmi K50i.</p>
+    <!-- FOOTER -->
+    <footer class="premium-footer scroll-reveal">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="footer-logo-row">
+            <div class="nav-logo-icon">🌕</div>
+            <span class="footer-logo">LUNARIS AOSP</span>
+          </div>
+          <p class="footer-desc">
+            A meticulously crafted custom Android 16 experience for the Redmi K50i (xaga), combining LineageOS stability with deep customization and speed.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Overview</a>
+          <a href="downloads.html">Downloads</a>
+          <a href="changelog.html">Changelogs</a>
+          <a href="guide.html">Flashing Guide</a>
+        </div>
+        <div class="footer-col">
+          <h4>Community & Support</h4>
+          <a href="https://github.com/itsrohan17" target="_blank" rel="noopener noreferrer">Maintainer GitHub (itsrohan17)</a>
+          <a href="https://github.com/Lunaris-AOSP" target="_blank" rel="noopener noreferrer">Source Code (Lunaris-AOSP)</a>
+          <a href="https://t.me/screenshotsxaga" target="_blank" rel="noopener noreferrer">Telegram Channel (Updates)</a>
+          <a href="https://t.me/XAGASupport" target="_blank" rel="noopener noreferrer">Telegram Group (Support)</a>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <a href="index.html">Home</a>
-        <a href="downloads.html">Downloads</a>
-        <a href="changelog.html">Changelogs</a>
-        <a href="guide.html">Flashing Guide</a>
-      </div>
-      <div class="footer-col">
-        <h4>Community & Source</h4>
-        <a href="https://github.com/Lunaris-AOSP" target="_blank">Source Code (Lunaris)</a>
-        <a href="https://github.com/itsrohan17" target="_blank">Maintainer (itsrohan17)</a>
-        <a href="https://t.me/screenshotsxaga" target="_blank">Telegram Updates</a>
-        <a href="https://t.me/XAGASupport" target="_blank">Report a Bug / Support</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="device-info">
-        <span><span class="info-label">Device</span> xaga (Redmi K50i)</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Android</span> 16</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Last Build</span> Aug 2026</span>
-        <span class="dot-sep">•</span>
-        <span><span class="info-label">Maintainer</span> dev Rohan</span>
-      </div>
-      <p class="copyright">© 2026 Lunaris AOSP. All rights reserved.</p>
-    </div>
-  </footer>
 
-  <script>
-    (function () {
-      const isMobile = window.LUNARIS_IS_MOBILE ?? matchMedia('(max-width:767px)').matches;
+      <div class="footer-bottom">
+        <div class="device-info">
+          <span><span class="info-label">Device</span> xaga (Redmi K50i)</span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Android</span> 16</span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Latest</span> <span class="live-tag">v3.13</span></span>
+          <span class="dot-sep">•</span>
+          <span><span class="info-label">Maintainer</span> dev Rohan</span>
+        </div>
+        <p class="copyright">© 2026 Lunaris AOSP. Crafted with precision for Redmi K50i.</p>
+      </div>
+    </footer>
+  </main>
 
-      window.showTab = function (id, btn) {
-        ['win', 'linux', 'termux'].forEach(t => { const el = document.getElementById('tab-' + t); if (el) el.style.display = t === id ? 'block' : 'none'; });
-        document.querySelectorAll('.mtab').forEach(b => b.classList.remove('active')); if (btn && btn.classList) btn.classList.add('active');
-      };
-
-      window.copyCmd = function (btn, text) {
-        const done = () => { btn.textContent = 'Copied!'; btn.style.color = '#34d399'; setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = ''; }, 2000); };
-        if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done)); } else { fallbackCopy(text, done); }
-      };
-      function fallbackCopy(text, cb) { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); cb(); }
-    })();
-  </script>
 </body>
+
 </html>
